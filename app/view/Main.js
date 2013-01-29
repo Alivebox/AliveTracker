@@ -6,7 +6,9 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.authentication.ForgotPassword',
         'AliveTracker.view.authentication.Register',
         'AliveTracker.view.authentication.Profile',
-        'AliveTracker.view.reports.Reports'
+        'AliveTracker.view.reports.Reports',
+        'AliveTracker.view.group.GroupDetail',
+        'AliveTracker.view.group.UsersGrid'
     ],
 
     config:{
@@ -30,6 +32,10 @@ Ext.define('AliveTracker.view.Main', {
             {
                 xtype:'reportsForm',
                 title:'Reports'
+            },
+            {
+                xtype:'groupDetailForm',
+                title:'Group Detail'
             }
         ]
     }

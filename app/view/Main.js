@@ -1,12 +1,12 @@
-Ext.define('Memoranda.view.Main', {
+Ext.define('AliveTracker.view.Main', {
     extend:'Ext.tab.Panel',
     xtype:'main',
     requires : [
-        'Memoranda.view.authentication.Login',
-        'Memoranda.view.authentication.ForgotPassword',
-        'Memoranda.view.authentication.Register',
-        'Memoranda.view.authentication.Profile',
-        'Memoranda.view.reports.Reports'
+        'AliveTracker.view.authentication.Login',
+        'AliveTracker.view.authentication.ForgotPassword',
+        'AliveTracker.view.authentication.Register',
+        'AliveTracker.view.authentication.Profile',
+        'AliveTracker.view.reports.Reports'
     ],
 
     config:{

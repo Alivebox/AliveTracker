@@ -1,4 +1,4 @@
-Ext.define('Memoranda.view.authentication.ForgotPassword', {
+Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     extend: 'Ext.Container',
     xtype: 'forgotPasswordForm',
     layout: 'anchor',

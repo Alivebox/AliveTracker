@@ -2,7 +2,7 @@ Ext.Loader.setConfig({enabled:true});
 
 Ext.application({
 
-    name: 'Memoranda',
+    name: 'AliveTracker',
 
     controllers: [
         'MainController'

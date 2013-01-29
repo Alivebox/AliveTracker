@@ -1,4 +1,4 @@
-Ext.define('Memoranda.view.reports.Reports', {
+Ext.define('AliveTracker.view.reports.Reports', {
     extend: 'Ext.Container',
     xtype: 'reportsForm',
     layout: 'anchor',

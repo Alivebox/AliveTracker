@@ -1,4 +1,4 @@
-Ext.define('Memoranda.view.authentication.Login', {
+Ext.define('AliveTracker.view.authentication.Login', {
     extend: 'Ext.Container',
     xtype: 'loginForm',
     layout: 'anchor',

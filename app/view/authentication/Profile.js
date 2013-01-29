@@ -1,4 +1,4 @@
-Ext.define('Memoranda.view.authentication.Profile', {
+Ext.define('AliveTracker.view.authentication.Profile', {
 
     extend:'Ext.container.Container',
     xtype:'profileForm',
@@ -12,7 +12,7 @@ Ext.define('Memoranda.view.authentication.Profile', {
                     {
                         xtype:'image',
                         name:'image',
-                        src:'/Memoranda/resources/icons/user.png'
+                        src:'/AliveTracker/resources/icons/user.png'
                     },
                     {
                         xtype:'container',

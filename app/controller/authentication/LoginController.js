@@ -1,4 +1,4 @@
-Ext.define("Memoranda.controller.authentication.LoginController", {
+Ext.define("AliveTracker.controller.authentication.LoginController", {
 
     extend: "Ext.app.Controller",
 

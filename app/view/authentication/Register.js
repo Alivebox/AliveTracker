@@ -1,4 +1,4 @@
-Ext.define('Memoranda.view.authentication.Register', {
+Ext.define('AliveTracker.view.authentication.Register', {
     extend: 'Ext.Container',
     xtype: 'registerForm',
     layout: 'anchor',

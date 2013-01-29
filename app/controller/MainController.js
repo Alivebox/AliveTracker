@@ -1,4 +1,4 @@
-Ext.define("Memoranda.controller.MainController", {
+Ext.define("AliveTracker.controller.MainController", {
 
     extend: "Ext.app.Controller",
 

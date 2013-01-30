@@ -34,7 +34,7 @@ Ext.define('AliveTracker.view.Main', {
                 title:'Reports'
             },
             {
-                xtype:'groupDetailForm',
+                xtype:'groupdetailform',
                 title:'Group Detail'
             }
         ]

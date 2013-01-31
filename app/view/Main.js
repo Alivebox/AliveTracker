@@ -10,7 +10,8 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.group.GroupDetail',
         'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.projects.ProjectBook',
-        'AliveTracker.view.projects.AssignProjectsToUsers'
+        'AliveTracker.view.projects.AssignProjectsToUsers',
+        'AliveTracker.view.projects.AssignUsersToProjects'
     ],
 
     config:{
@@ -45,6 +46,9 @@ Ext.define('AliveTracker.view.Main', {
             },{
                 xtype:'assignProjectsToUsersForm',
                 title:'Assign Projects'
+            },{
+                xtype:'assignUsersToProjectsForm',
+                title:'Assign Users'
             }
         ]
     }

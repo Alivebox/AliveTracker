@@ -9,16 +9,11 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.reports.Reports',
         'AliveTracker.view.group.GroupDetail',
         'AliveTracker.view.group.UsersGrid',
-        'AliveTracker.view.projects.ProjectBook',
-        'AliveTracker.view.home.Home'
+        'AliveTracker.view.projects.ProjectBook'
     ],
 
     config:{
         items:[
-            {
-                xtype: 'home',
-                title: 'Home'
-            },
             {
                 xtype:'loginForm',
                 title:'Login'

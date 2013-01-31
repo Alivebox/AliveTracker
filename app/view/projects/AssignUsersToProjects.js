@@ -1,6 +1,6 @@
-Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
+Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
     extend: 'Ext.container.Container',
-    xtype: 'assignProjectsToUsersForm',
+    xtype: 'assignUsersToProjectsForm',
     requires : [
         'AliveTracker.view.utils.SingleColumnGrid'
     ],
@@ -8,20 +8,20 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
         items:[
             {
                 xtype: 'label',
-                name: 'userInfo',
-                text: 'Juan Carlos Morales M. [jmorales@alivebox.com]'
+                name: 'projectInfo',
+                text: 'Project Name'
             }, {
-                xtype: 'combobox',
-                name: 'role',
-                allowBlank: false,
-                fieldLabel: 'Role'
+                xtype: 'textfield',
+                name: 'userNameFilter',
+                fieldLabel: 'name',
+                maxLength: 20
             },{
                 xtype:'container',
                 layout: 'column',
                 items:[
                     {
                         xtype: 'singleColumnGrid',
-                        title: 'Available Projects',
+                        title: 'Available Users',
                         width: 125
                     },{
                         xtype:'container',
@@ -51,7 +51,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                         ]
                     },{
                         xtype: 'singleColumnGrid',
-                        title: 'Assigned Projects',
+                        title: 'Assigned Users',
                         width: 125
                     }
                 ]

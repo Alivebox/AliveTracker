@@ -1,6 +1,6 @@
 Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     extend: 'Ext.Container',
-    xtype: 'forgotPasswordForm',
+    xtype: 'forgotpasswordform',
     config: {
         items: [
             {

@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.authentication.Profile', {
 
     extend:'Ext.Container',
-    xtype:'profileForm',
+    xtype:'profileform',
 
     config:{
         items:[

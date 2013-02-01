@@ -11,29 +11,34 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.projects.AssignProjectsToUsers',
-        'AliveTracker.view.projects.AssignUsersToProjects'
+        'AliveTracker.view.projects.AssignUsersToProjects',
+        'AliveTracker.view.home.Home'
     ],
 
     config:{
         items:[
             {
-                xtype:'loginForm',
+                xtype:'loginform',
                 title:'Login'
             },
             {
-                xtype:'forgotPasswordForm',
+                xtype: 'home',
+                title: 'Home'
+            },
+            {
+                xtype:'forgotpasswordform',
                 title:'Forgot Password'
             },
             {
-                xtype:'registerForm',
+                xtype:'registerform',
                 title:'Register'
             },
             {
-                xtype:'profileForm',
+                xtype:'profileform',
                 title:'Profile'
             },
             {
-                xtype:'reportsForm',
+                xtype:'reportsform',
                 title:'Reports'
             },
             {
@@ -44,10 +49,10 @@ Ext.define('AliveTracker.view.Main', {
                 xtype:'projectbookform',
                 title:'Project book'
             },{
-                xtype:'assignProjectsToUsersForm',
+                xtype:'assignprojectstousersform',
                 title:'Assign Projects'
             },{
-                xtype:'assignUsersToProjectsForm',
+                xtype:'assignuserstoprojectsform',
                 title:'Assign Users'
             }
         ]

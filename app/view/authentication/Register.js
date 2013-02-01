@@ -1,6 +1,6 @@
 Ext.define('AliveTracker.view.authentication.Register', {
     extend: 'Ext.Container',
-    xtype: 'registerForm',
+    xtype: 'registerform',
     config: {
         items:[
             {

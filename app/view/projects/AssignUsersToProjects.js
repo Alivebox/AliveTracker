@@ -1,8 +1,9 @@
 Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
     extend: 'Ext.container.Container',
-    xtype: 'assignUsersToProjectsForm',
+    xtype: 'assignuserstoprojectsform',
     requires : [
-        'AliveTracker.view.utils.SingleColumnGrid'
+        'AliveTracker.view.utils.SingleColumnGrid',
+        'AliveTracker.view.utils.SearchableList'
     ],
     config: {
         items:[
@@ -10,19 +11,18 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                 xtype: 'label',
                 name: 'projectInfo',
                 text: 'Project Name'
-            }, {
-                xtype: 'textfield',
-                name: 'userNameFilter',
-                fieldLabel: 'name',
-                maxLength: 20
             },{
                 xtype:'container',
                 layout: 'column',
                 items:[
-                    {
-                        xtype: 'singleColumnGrid',
-                        title: 'Available Users',
-                        width: 125
+                    ,{
+                        xtype:'searchablelist',
+                        filterConfig: {
+                            fieldLabel: 'name'
+                        },
+                        listConfig: {
+                            title: 'Available Userss'
+                        }
                     },{
                         xtype:'container',
                         layout: 'vbox',
@@ -50,7 +50,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                             }
                         ]
                     },{
-                        xtype: 'singleColumnGrid',
+                        xtype: 'singlecolumngrid',
                         title: 'Assigned Users',
                         width: 125
                     }

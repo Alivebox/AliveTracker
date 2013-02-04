@@ -10,7 +10,9 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    text: 'Name'
+                    text: 'Name',
+                    sortable : false,
+                    dataIndex: 'name'
                 },
                 {
                     xtype: 'gridcolumn',

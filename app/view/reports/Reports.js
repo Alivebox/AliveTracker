@@ -1,6 +1,6 @@
 Ext.define('AliveTracker.view.reports.Reports', {
     extend: 'Ext.Container',
-    xtype: 'reportsForm',
+    xtype: 'reportsform',
     layout: 'anchor',
     config: {
         items: [

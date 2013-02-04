@@ -1,6 +1,6 @@
 Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
     extend: 'Ext.container.Container',
-    xtype: 'assignProjectsToUsersForm',
+    xtype: 'assignprojectstousersform',
     requires : [
         'AliveTracker.view.utils.SingleColumnGrid'
     ],
@@ -20,7 +20,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 layout: 'column',
                 items:[
                     {
-                        xtype: 'singleColumnGrid',
+                        xtype: 'singlecolumngrid',
                         title: 'Available Projects',
                         width: 125
                     },{
@@ -50,7 +50,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                             }
                         ]
                     },{
-                        xtype: 'singleColumnGrid',
+                        xtype: 'singlecolumngrid',
                         title: 'Assigned Projects',
                         width: 125
                     }

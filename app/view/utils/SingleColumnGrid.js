@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.utils.SingleColumnGrid', {
 
     extend: 'Ext.grid.Panel',
-    xtype:"singleColumnGrid",
+    xtype:"singlecolumngrid",
     columns: [
         {
             xtype: 'gridcolumn'

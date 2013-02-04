@@ -1,6 +1,6 @@
 Ext.Loader.setConfig({enabled:true});
 
-Ext.Loader.setPath('Ext.ux', 'extjs/examples/ux');
+Ext.Loader.setPath('Ext.ux.DataView', 'extjs/examples/ux/DataView');
 
 Ext.application({
 

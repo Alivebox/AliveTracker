@@ -18,7 +18,7 @@ Ext.define('AliveTracker.view.Main', {
     config:{
         items:[
             {
-                xtype:'loginForm',
+                xtype:'loginform',
                 title:'Login'
             },
             {
@@ -26,19 +26,19 @@ Ext.define('AliveTracker.view.Main', {
                 title: 'Home'
             },
             {
-                xtype:'forgotPasswordForm',
+                xtype:'forgotpasswordform',
                 title:'Forgot Password'
             },
             {
-                xtype:'registerForm',
+                xtype:'registerform',
                 title:'Register'
             },
             {
-                xtype:'profileForm',
+                xtype:'profileform',
                 title:'Profile'
             },
             {
-                xtype:'reportsForm',
+                xtype:'reportsform',
                 title:'Reports'
             },
             {
@@ -48,13 +48,16 @@ Ext.define('AliveTracker.view.Main', {
             {
                 xtype:'projectbookform',
                 title:'Project book'
-            },{
-                xtype:'assignProjectsToUsersForm',
+            },
+            {
+                xtype:'assignprojectstousersform',
                 title:'Assign Projects'
-            },{
-                xtype:'assignUsersToProjectsForm',
+            },
+            {
+                xtype:'assignuserstoprojectsform',
                 title:'Assign Users'
             }
+
         ]
     }
 });

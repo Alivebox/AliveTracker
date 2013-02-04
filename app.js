@@ -9,7 +9,10 @@ Ext.application({
     controllers: [
         'MainController',
         'home.HomeController',
-        'group.GroupDetailController'
+        'group.GroupDetailController',
+        'projects.AssignProjectsToUsersController',
+        'projects.AssignUsersToProjectsController',
+        'AliveTracker.controller.reports.ReportsController'
     ],
 
     launch: function(){

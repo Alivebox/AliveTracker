@@ -24,7 +24,6 @@ Ext.define('AliveTracker.view.utils.SearchableList', {
             xtype: 'textfield',
             name: 'filterText',
             fieldLabel: 'filter',
-            allowBlank: false,
             maxLength: 20
         };
         Ext.apply(tmpLabel,this.filterConfig);
@@ -32,8 +31,7 @@ Ext.define('AliveTracker.view.utils.SearchableList', {
     },
     createList: function(){
         var tmpList = {
-            xtype: 'singlecolumngrid',
-            title: 'Column'
+            xtype: 'singlecolumngrid'
         };
         Ext.apply(tmpList,this.listConfig);
         return tmpList;

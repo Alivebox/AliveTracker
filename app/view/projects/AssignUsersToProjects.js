@@ -21,7 +21,8 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                             fieldLabel: 'name'
                         },
                         listConfig: {
-                            title: 'Available Userss'
+                            columnHeader: 'Available Users',
+                            store: 'Users'
                         }
                     },{
                         xtype:'container',
@@ -51,7 +52,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                         ]
                     },{
                         xtype: 'singlecolumngrid',
-                        title: 'Assigned Users',
+                        columnHeader: 'Assigned Users',
                         width: 125
                     }
                 ]

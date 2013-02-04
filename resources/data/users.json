@@ -1,16 +1,16 @@
 {
-    "data":[
-        {
-            "name":"user1@ab.com",
-            "role":"adm"
-        },
-        {
-            "name":"user2@ab.com",
-            "role":"usr"
-        },
-        {
-            "name":"user3@ab.com",
-            "role":"inv"
-        }
-    ]
+"data":[
+{
+"name":"user1@ab.com",
+"role":"adm"
+},
+{
+"name":"user2@ab.com",
+"role":"usr"
+},
+{
+"name":"user3@ab.com",
+"role":"inv"
+}
+]
 }

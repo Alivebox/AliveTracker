@@ -4,8 +4,8 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
     requires : [
         'AliveTracker.view.utils.SingleColumnGrid'
     ],
-    config: {
-        items:[
+    initComponent: function(){
+        this.items = [
             {
                 xtype: 'label',
                 name: 'userInfo',
@@ -21,7 +21,8 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 items:[
                     {
                         xtype: 'singlecolumngrid',
-                        title: 'Available Projects',
+                        columnHeader: 'Available Projects',
+                        store: 'Projects',
                         width: 125
                     },{
                         xtype:'container',
@@ -51,7 +52,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                         ]
                     },{
                         xtype: 'singlecolumngrid',
-                        title: 'Assigned Projects',
+                        columnHeader: 'Assigned Projects',
                         width: 125
                     }
                 ]
@@ -72,7 +73,8 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                     }
                 ]
             }
-        ]
+        ];
+        this.callParent(arguments);
     }
 })
 

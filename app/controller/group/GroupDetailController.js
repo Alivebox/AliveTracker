@@ -6,11 +6,13 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         'AliveTracker.view.group.AddProjectPopUp'
     ],
     models:[
-        'User'
+        'User',
+        'Project'
     ],
 
     stores:[
-        'Users'
+        'Users',
+        'Projects'
     ],
     init: function(){
         /**this.control({
@@ -35,11 +37,20 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     onUserAfterRender: function(){
         this.loadUserStore();
+        this.loadProjectStore();
     },
 
     loadUserStore: function(){
         var tmpGroupsStore = Ext.getStore('Users');
         tmpGroupsStore.load({
+            callback: function(){
+            }
+        });
+    },
+
+    loadProjectStore: function(){
+        var tmpProjectsStore = Ext.getStore('Projects');
+        tmpProjectsStore.load({
             callback: function(){
             }
         });
@@ -66,6 +77,18 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     /**This method will add a project*/
     onAddProject: function(argEvent){
         var tmpWindow = argEvent;
+        var tmpProjectName = argEvent.projectTextField.value;
+        this.loadProjectToStore(tmpProjectName);
         tmpWindow.close();
+    },
+
+    /**Method in charge to load element to a project store*/
+    loadProjectToStore: function(argProjectName){
+        var tmpProjectStore = Ext.getStore('Projects');
+        var tmpProjectModel = tmpProjectStore.getProxy().getModel();
+        var tmpProject = new tmpProjectModel({name: argProjectName});
+        tmpProjectStore.add(tmpProject);
+        tmpProjectStore.commitChanges();
     }
+
 });

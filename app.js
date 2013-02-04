@@ -8,7 +8,8 @@ Ext.application({
 
     controllers: [
         'MainController',
-        'home.HomeController'
+        'home.HomeController',
+        'group.GroupDetailController'
     ],
 
     launch: function(){

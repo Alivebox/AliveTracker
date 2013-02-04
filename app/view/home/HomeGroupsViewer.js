@@ -19,7 +19,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
             itemSelector: 'div.thumb-wrap',
             emptyText: 'No groups created',
             trackOver: true,
-            //overItemCls: 'x-item-over',
+            overItemCls: 'x-item-over',
             plugins: [
                 Ext.create('Ext.ux.DataView.DragSelector', {})
             ],

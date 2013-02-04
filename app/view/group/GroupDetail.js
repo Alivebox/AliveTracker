@@ -6,8 +6,9 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.group.ProjectsGrid'
     ],
-    config: {
-        items: [
+
+    initComponent: function(){
+        this.items = [
             {
                 xtype: 'label',
                 name: 'groupName',
@@ -19,27 +20,59 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                 items: [
                     {
                         xtype: 'label',
-                        name: 'users',
+                        name: 'lblUsers',
                         text: 'Users'
                     },
                     {
                         xtype: 'button',
                         name: 'btnInvite',
-                        text: 'Invite Users'
+                        text: 'Invite Users',
+                        listeners: {
+                            scope: this,
+                            click: this.onInviteUsersClick
+                        }
                     }
                 ]
             },
             {
-                xtype: 'usersGrid'
+                xtype: 'usersGrid',
+                store: 'Users'
             },
             {
-                xtype: 'label',
-                name: 'projects',
-                text: 'Projects'
+               xtype: 'container',
+               layout: 'column',
+               items: [
+                   {
+                       xtype: 'label',
+                       name: 'lblUsers',
+                       text: 'Projects'
+                   },
+                   {
+                       xtype: 'button',
+                       name: 'btnAddProject',
+                       text: 'Add Project',
+                       listeners: {
+                           scope: this,
+                           click: this.onAddProjectClick
+                       }
+                   }
+               ]
             },
             {
                 xtype: 'projectGrid'
             }
-        ]
+        ];
+        this.callParent(arguments);
+    },
+
+    /**Fire a event to GroupDetailController*/
+    onInviteUsersClick: function(){
+        this.fireEvent('inviteUser');
+    },
+
+    /**Fire a event to GroupDetailController*/
+    onAddProjectClick: function(){
+        this.fireEvent('addProject');
     }
+
 })

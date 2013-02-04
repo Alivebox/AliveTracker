@@ -10,11 +10,15 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
             columns: [
                 {
                     xtype: 'gridcolumn',
-                    text: 'Name'
+                    text: 'Name',
+                    sortable : false,
+                    dataIndex: 'name'
                 },
                 {
                     xtype: 'gridcolumn',
-                    text: 'Role'
+                    text: 'Role',
+                    sortable : false,
+                    dataIndex: 'role'
                 },
                 {
                     xtype: 'gridcolumn',

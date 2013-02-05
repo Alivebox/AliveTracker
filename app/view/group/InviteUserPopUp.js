@@ -6,9 +6,9 @@ Ext.define('AliveTracker.view.group.InviteUserPopUp', {
     height:90,
     width:300,
     initComponent:function () {
-        this.projectTextField = this.createProjectNameTextField();
+        this.emailTextField = this.createProjectNameTextField();
         this.items = [
-            this.projectTextField,
+            this.emailTextField,
             {
                 xtype:'button',
                 name:'signUp',
@@ -22,18 +22,23 @@ Ext.define('AliveTracker.view.group.InviteUserPopUp', {
         this.callParent(arguments);
     },
 
+    /**Create a textfield for email*/
     createProjectNameTextField: function(){
         var tmpEmailTextField = Ext.create('Ext.form.field.Text',{
             name:'email',
             fieldLabel:'Email(s):',
             allowBlank:false,
-            maxLength:100
+            maxLength:100,
+            vtype: 'email'
         });
         return tmpEmailTextField;
     },
 
     /**Will send the email to the controller*/
     inviteUserClick:function () {
+        if(Ext.isEmpty(this.emailTextField.value)){
+            return;
+        }
         this.fireEvent('inviteUser', this);
     }
 });

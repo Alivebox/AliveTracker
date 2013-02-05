@@ -34,6 +34,9 @@ Ext.define('AliveTracker.view.group.AddProjectPopUp', {
 
     /**Will send the email to the controller*/
     addProjectClick:function () {
+        if(Ext.isEmpty(this.projectTextField.value)){
+            return;
+        }
         this.fireEvent('addProjectClick', this);
     }
 });

@@ -12,7 +12,8 @@ Ext.application({
         'group.GroupDetailController',
         'projects.AssignProjectsToUsersController',
         'projects.AssignUsersToProjectsController',
-        'AliveTracker.controller.reports.ReportsController'
+        'AliveTracker.controller.reports.ReportsController',
+        'projects.LogBookController'
     ],
 
     launch: function(){

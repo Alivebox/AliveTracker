@@ -36,11 +36,11 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     },
 
     onUserAfterRender: function(){
-        this.loadUserStore();
+        this.loadGroupStore();
         this.loadProjectStore();
     },
 
-    loadUserStore: function(){
+    loadGroupStore: function(){
         var tmpGroupsStore = Ext.getStore('Users');
         tmpGroupsStore.load({
             callback: function(){

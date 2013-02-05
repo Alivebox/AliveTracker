@@ -14,6 +14,8 @@ Ext.application({
         'projects.AssignUsersToProjectsController',
         'AliveTracker.controller.reports.ReportsController',
         'projects.LogBookController'
+        'reports.ReportsController',
+        'utils.ItemSelectorController'
     ],
 
     launch: function(){

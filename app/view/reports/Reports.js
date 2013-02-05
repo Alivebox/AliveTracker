@@ -14,26 +14,30 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 allowBlank: false,
                 fieldLabel: 'Group',
                 store: 'Groups',
-                displayField: 'name'
+                displayField: 'name',
+                editable: false
             }, {
                 xtype: 'combobox',
                 name: 'project',
                 allowBlank: false,
                 fieldLabel: 'Project',
                 store: 'Projects',
-                displayField: 'name'
+                displayField: 'name',
+                editable: false
             }, {
                 xtype: 'combobox',
                 name: 'user',
                 allowBlank: false,
                 fieldLabel: 'User',
                 store: 'Users',
-                displayField: 'name'
+                displayField: 'name',
+                editable: false
             }, {
                 xtype: 'combobox',
                 name: 'dateRange',
-                allowBlank: false,
-                fieldLabel: 'Date Range'
+                allowBlank: true,
+                fieldLabel: 'Date Range',
+                editable: false
             },{
                 xtype: 'datefield',
                 name: 'fromDate',

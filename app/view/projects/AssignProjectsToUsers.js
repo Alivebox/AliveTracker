@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
     extend: 'Ext.container.Container',
     xtype: 'assignprojectstousersform',
     requires : [
-        'AliveTracker.view.utils.SingleColumnGrid'
+        'AliveTracker.view.utils.ItemSelector'
     ],
     initComponent: function(){
         this.items = [
@@ -17,43 +17,16 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 fieldLabel: 'Role'
             },{
                 xtype:'container',
-                layout: 'column',
                 items:[
                     {
-                        xtype: 'singlecolumngrid',
-                        columnHeader: 'Available Projects',
-                        store: 'Projects',
-                        width: 125
-                    },{
-                        xtype:'container',
-                        layout: 'vbox',
-                        items:[
-                            {
-                                xtype: 'button',
-                                name: 'addAll',
-                                text   : null,
-                                icon: '/AliveTracker/resources/icons/addAll.png'
-                            },{
-                                xtype: 'button',
-                                name: 'addOne',
-                                text   : null,
-                                icon: '/AliveTracker/resources/icons/add.png'
-                            },{
-                                xtype: 'button',
-                                name: 'removeOne',
-                                text   : null,
-                                icon: '/AliveTracker/resources/icons/remove.png'
-                            },{
-                                xtype: 'button',
-                                name: 'removeAll',
-                                text   : null,
-                                icon: '/AliveTracker/resources/icons/removeAll.png'
-                            }
-                        ]
-                    },{
-                        xtype: 'singlecolumngrid',
-                        columnHeader: 'Assigned Projects',
-                        width: 125
+                        xtype: 'itemselector',
+                        availableItemsListConfig:{
+                            columnHeader: 'Available Projects',
+                            store: 'Projects'
+                        },
+                        assignedItemsListConfig:{
+                            columnHeader: 'Assigned Projects'
+                        }
                     }
                 ]
             },

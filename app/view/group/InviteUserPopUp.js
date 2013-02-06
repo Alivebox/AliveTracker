@@ -11,8 +11,8 @@ Ext.define('AliveTracker.view.group.InviteUserPopUp', {
             this.emailTextField,
             {
                 xtype:'button',
-                name:'signUp',
-                text:'Sign-Up',
+                name:'inviteUser',
+                text:'Invite User',
                 listeners:{
                     scope:this,
                     click:"inviteUserClick"

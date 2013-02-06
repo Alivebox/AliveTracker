@@ -30,8 +30,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             callback: function(){
             }
         });
-        var tmpGroupsStore = Ext.getStore('BelongGroups');
-        tmpGroupsStore.load({
+        var tmpBelongGroupsStore = Ext.getStore('BelongGroups');
+        tmpBelongGroupsStore.load({
             callback: function(){
             }
         });

@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.utils.ItemSelector', {
 
     extend: 'Ext.Container',
     xtype: 'itemselector',
-    dataStore: undefined,
+    store: undefined,
     fieldLable: undefined,
     displayField: undefined,
     valueField: undefined,
@@ -20,7 +20,7 @@ Ext.define('AliveTracker.view.utils.ItemSelector', {
             anchor:'100%',
             fieldLabel: this.fieldLable,
             imagePath:'extjs/examples/ux/css/images/',
-            store: this.dataStore,
+            store: this.store,
             displayField: this.displayField,
             valueField: this.valueField,
             msgTarget:'side',
@@ -33,4 +33,4 @@ Ext.define('AliveTracker.view.utils.ItemSelector', {
 
         this.callParent(arguments);
     }
-})
+});

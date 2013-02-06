@@ -37,4 +37,4 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
         }
     ]
 
-})
+});

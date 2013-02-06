@@ -27,4 +27,4 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
         this.fireEvent('sendResetInstruccions');
     }
 
-})
+});

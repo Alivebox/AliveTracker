@@ -76,4 +76,4 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         this.fireEvent('addProject');
     }
 
-})
+});

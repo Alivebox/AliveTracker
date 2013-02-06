@@ -47,4 +47,4 @@ Ext.define('AliveTracker.view.authentication.Register', {
     onRegisterActionClick:function () {
         this.fireEvent('registerAction');
     }
-})
+});

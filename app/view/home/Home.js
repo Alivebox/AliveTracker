@@ -68,4 +68,4 @@ Ext.define('AliveTracker.view.home.Home', {
         return tmpBelongGroupsViewer;
     }
 
-})
+});

@@ -44,7 +44,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
             {
                 xtype: 'logbookgrid'
             }
-        ],
+        ];
             this.callParent(arguments);
     },
 
@@ -73,4 +73,4 @@ Ext.define('AliveTracker.view.projects.LogBook', {
         });
         return tmpProjectComboBox;
     }
-})
+});

@@ -90,4 +90,4 @@ Ext.define('AliveTracker.view.authentication.Profile', {
     onCancelClick:function () {
         this.fireEvent('cancelAction');
     }
-})
+});

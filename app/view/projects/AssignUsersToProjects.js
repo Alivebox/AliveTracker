@@ -16,7 +16,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                 items:[
                     {
                         xtype:'itemselector',
-                        dataStore:'Users',
+                        store:'Users',
                         fieldLable:'Select Users',
                         displayField:'name',
                         valueField:'name',
@@ -59,7 +59,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
     onCancelClick:function () {
         this.fireEvent('cancelAction');
     }
-})
+});
 
 
 

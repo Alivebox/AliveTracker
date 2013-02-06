@@ -70,4 +70,4 @@ Ext.define('AliveTracker.view.authentication.Login', {
     onSignUpClick:function () {
         this.fireEvent('signUpAction');
     }
-})
+});

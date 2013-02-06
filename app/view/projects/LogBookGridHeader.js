@@ -71,4 +71,4 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
     onAddNewActivity:function () {
         this.fireEvent('newActivity', this);
     }
-})
+});

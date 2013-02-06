@@ -13,7 +13,7 @@ Ext.application({
         'projects.AssignProjectsToUsersController',
         'projects.AssignUsersToProjectsController',
         'AliveTracker.controller.reports.ReportsController',
-        'projects.LogBookController'
+        'projects.LogBookController',
         'reports.ReportsController',
         'utils.ItemSelectorController'
     ],

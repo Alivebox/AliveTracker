@@ -32,11 +32,19 @@ Ext.define('AliveTracker.view.authentication.Register', {
                     {
                         xtype:'button',
                         name:'registerNow',
-                        text:'Register Now'
+                        text:'Register Now',
+                        listeners:{
+                            scope:this,
+                            click:this.onRegisterActionClick
+                        }
+
                     }
                 ]
             }
         ];
         this.callParent(arguments);
+    },
+    onRegisterActionClick:function () {
+        this.fireEvent('registerAction');
     }
 })

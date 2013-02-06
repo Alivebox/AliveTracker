@@ -1,46 +1,63 @@
 Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
-    extend: 'Ext.container.Container',
-    xtype: 'assignuserstoprojectsform',
-    requires : [
+    extend:'Ext.container.Container',
+    xtype:'assignuserstoprojectsform',
+    requires:[
         'AliveTracker.view.utils.ItemSelector'
     ],
-    config: {
-        items:[
+    initComponent:function () {
+        this.items = [
             {
-                xtype: 'label',
-                name: 'projectInfo',
-                text: 'Project Name'
-            },{
+                xtype:'label',
+                name:'projectInfo',
+                text:'Project Name'
+            },
+            {
                 xtype:'container',
                 items:[
                     {
-                        xtype: 'itemselector',
-                        dataStore: 'Users',
-                        fieldLable: 'Select Users',
-                        displayField: 'name',
-                        valueField: 'name',
-                        buttons: ['add', 'remove']
+                        xtype:'itemselector',
+                        dataStore:'Users',
+                        fieldLable:'Select Users',
+                        displayField:'name',
+                        valueField:'name',
+                        buttons:['add', 'remove']
                     }
                 ]
             },
             {
-                xtype: 'container',
-                layout: 'column',
-                items: [
+                xtype:'container',
+                layout:'column',
+                items:[
                     {
-                        xtype: 'button',
-                        name: 'save',
-                        text: 'Save'
+                        xtype:'button',
+                        name:'save',
+                        text:'Save',
+                        listeners:{
+                            scope:this,
+                            click:this.onSaveClick
+                        }
 
-                    }, {
-                        xtype: 'button',
-                        name: 'cancel',
-                        text: 'Cancel'
+                    },
+                    {
+                        xtype:'button',
+                        name:'cancel',
+                        text:'Cancel',
+                        listeners:{
+                            scope:this,
+                            click:this.onCancelClick
+                        }
                     }
 
                 ]
             }
-        ]
+        ];
+        this.callParent(arguments);
+    },
+    onSaveClick:function () {
+        this.fireEvent('saveAction');
+    },
+    onCancelClick:function () {
+        this.fireEvent('cancelAction');
     }
 })
 

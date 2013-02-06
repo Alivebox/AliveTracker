@@ -18,9 +18,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     init: function(){
         this.control({
             'reportsform': {
-                afterrender: this.onReportsAfterRender
+                afterrender: this.onReportsAfterRender,
+                exportReport: this.onExportReport
             }
         });
+    },
+    onExportReport: function(){
+        debugger;
     },
     onReportsAfterRender: function(){
         this.loadProjectsStore();

@@ -25,7 +25,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
                     {
                         xtype:'button',
                         name:'login',
-                        text:'Login'
+                        text:'Login',
+                        listeners:{
+                            scope:this,
+                            click:this.onLoginClick
+                        }
                     },
                     {
                         xtype:'container',
@@ -34,7 +38,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
                             {
                                 xtype:'button',
                                 name:'signUp',
-                                text:'Sign-Up'
+                                text:'Sign-Up',
+                                listeners:{
+                                    scope:this,
+                                    click:this.onSignUpClick
+                                }
                             },
                             {
                                 xtype:'button',
@@ -55,5 +63,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
     },
     onForgotPasswordClick:function () {
         this.fireEvent('navigateToForgotPasswordView');
+    },
+    onLoginClick:function () {
+        this.fireEvent('loginAction');
+    },
+    onSignUpClick:function () {
+        this.fireEvent('signUpAction');
     }
 })

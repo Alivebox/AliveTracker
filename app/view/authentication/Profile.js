@@ -63,17 +63,31 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                     {
                         xtype:'button',
                         name:'save',
-                        text:'Save'
+                        text:'Save',
+                        listeners:{
+                            scope:this,
+                            click:this.onSaveClick
+                        }
 
                     },
                     {
                         xtype:'button',
                         name:'cancel',
-                        text:'Cancel'
+                        text:'Cancel',
+                        listeners:{
+                            scope:this,
+                            click:this.onCancelClick
+                        }
                     }
                 ]
             }
         ];
         this.callParent(arguments);
+    },
+    onSaveClick:function () {
+        this.fireEvent('saveAction');
+    },
+    onCancelClick:function () {
+        this.fireEvent('cancelAction');
     }
 })

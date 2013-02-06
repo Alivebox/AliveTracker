@@ -4,24 +4,27 @@ Ext.Loader.setPath('Ext.ux', 'extjs/examples/ux/');
 
 Ext.application({
 
-    name: 'AliveTracker',
+    name:'AliveTracker',
 
-    controllers: [
+    controllers:[
         'MainController',
         'home.HomeController',
         'group.GroupDetailController',
+        'reports.ReportsController',
         'projects.AssignProjectsToUsersController',
         'projects.AssignUsersToProjectsController',
-        'reports.ReportsController',
-        'authentication.LoginController'
+        'authentication.LoginController',
+        'authentication.ForgotPasswordController',
+        'authentication.ProfileController',
+        'authentication.RegisterController'
     ],
 
-    launch: function(){
+    launch:function () {
         Ext.create('Ext.container.Viewport', {
-            layout: 'fit',
-            items: [
+            layout:'fit',
+            items:[
                 {
-                    xtype: 'main'
+                    xtype:'main'
                 }
             ]
         });

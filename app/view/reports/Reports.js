@@ -56,9 +56,17 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'button',
                 name:'export',
-                text:'Export'
+                text:'Export',
+                listeners:{
+                    scope:this,
+                    click:this.onExportReportClick
+                }
+
             }
         ];
         this.callParent(arguments);
+    },
+    onExportReportClick:function () {
+        this.fireEvent('exportReport');
     }
 })

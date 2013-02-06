@@ -14,9 +14,17 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
             {
                 xtype:'button',
                 name:'resetInsructions',
-                text:'Send me reset instructions'
+                text:'Send me reset instructions',
+                listeners:{
+                    scope:this,
+                    click:this.onSendResetInstruccionsClick
+                }
             }
         ];
         this.callParent(arguments);
+    },
+    onSendResetInstruccionsClick:function () {
+        this.fireEvent('sendResetInstruccions');
     }
+
 })

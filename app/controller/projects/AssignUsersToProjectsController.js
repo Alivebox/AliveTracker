@@ -1,7 +1,7 @@
 Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
 
-    extend: "Ext.app.Controller",
-    requires : [
+    extend:"Ext.app.Controller",
+    requires:[
         'AliveTracker.view.projects.AssignUsersToProjects'
     ],
     models:[
@@ -11,23 +11,31 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     stores:[
         'Users'
     ],
-    init: function(){
+    init:function () {
         this.control({
-            'assignuserstoprojectsform': {
-                afterrender: this.onUserAfterRender
+            'assignuserstoprojectsform':{
+                afterrender:this.onUserAfterRender,
+                saveAction:this.onSaveAction,
+                cancelAction:this.onCancelAction
             }
         });
     },
-    onUserAfterRender: function(){
+    onUserAfterRender:function () {
         this.loadUsersStore();
     },
 
-    loadUsersStore: function(){
+    loadUsersStore:function () {
         var tmpUsersStore = Ext.getStore('Users');
         tmpUsersStore.load({
-            callback: function(){
+            callback:function () {
             }
         });
+    },
+    onSaveAction:function () {
+        debugger;
+    },
+    onCancelAction:function () {
+        debugger;
     }
 
 });

@@ -15,11 +15,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         'Projects'
     ],
     init: function(){
-        /**this.control({
-            'groupdetailform button[name=btnInvite]': {
-                click: this.onInviteUserClick
-            }
-        });*/
         this.control({
             'groupdetailform': {
                 inviteUser: this.onShowInviteUserPopUp,

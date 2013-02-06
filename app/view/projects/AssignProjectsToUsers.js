@@ -20,13 +20,11 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 items:[
                     {
                         xtype: 'itemselector',
-                        availableItemsListConfig:{
-                            columnHeader: 'Available Projects',
-                            store: 'Projects'
-                        },
-                        assignedItemsListConfig:{
-                            columnHeader: 'Assigned Projects'
-                        }
+                        dataStore: 'Projects',
+                        fieldLable: 'Select Projects',
+                        displayField: 'name',
+                        valueField: 'id',
+                        buttons: ['add', 'remove']
                     }
                 ]
             },

@@ -3,8 +3,8 @@ Ext.define('AliveTracker.view.authentication.Profile', {
     extend:'Ext.Container',
     xtype:'profileform',
 
-    config:{
-        items:[
+    initComponent:function () {
+        this.items = [
             {
                 xtype:'container',
                 layout:'column',
@@ -57,21 +57,37 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                 ]
             },
             {
-                xtype: 'container',
-                layout: 'column',
-                items: [
+                xtype:'container',
+                layout:'column',
+                items:[
                     {
-                        xtype: 'button',
-                        name: 'save',
-                        text: 'Save'
+                        xtype:'button',
+                        name:'save',
+                        text:'Save',
+                        listeners:{
+                            scope:this,
+                            click:this.onSaveClick
+                        }
 
-                    }, {
-                        xtype: 'button',
-                        name: 'cancel',
-                        text: 'Cancel'
+                    },
+                    {
+                        xtype:'button',
+                        name:'cancel',
+                        text:'Cancel',
+                        listeners:{
+                            scope:this,
+                            click:this.onCancelClick
+                        }
                     }
                 ]
             }
-        ]
+        ];
+        this.callParent(arguments);
+    },
+    onSaveClick:function () {
+        this.fireEvent('saveAction');
+    },
+    onCancelClick:function () {
+        this.fireEvent('cancelAction');
     }
 })

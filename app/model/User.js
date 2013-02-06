@@ -23,5 +23,4 @@ Ext.define('AliveTracker.model.User', {
             root: 'data'
         }
     }
-
 });

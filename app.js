@@ -12,10 +12,14 @@ Ext.application({
         'group.GroupDetailController',
         'projects.AssignProjectsToUsersController',
         'projects.AssignUsersToProjectsController',
-        'AliveTracker.controller.reports.ReportsController',
+        'reports.ReportsController',
         'projects.LogBookController',
         'reports.ReportsController',
-        'utils.ItemSelectorController'
+        'utils.ItemSelectorController',
+        'authentication.LoginController',
+        'authentication.ForgotPasswordController',
+        'authentication.ProfileController',
+        'authentication.RegisterController'
     ],
 
     launch: function(){

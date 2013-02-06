@@ -1,6 +1,7 @@
 Ext.define('AliveTracker.view.Main', {
     extend:'Ext.tab.Panel',
     xtype:'main',
+    id: 'main',
     requires : [
         'AliveTracker.view.authentication.Login',
         'AliveTracker.view.authentication.ForgotPassword',
@@ -15,8 +16,8 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.home.Home'
     ],
 
-    config:{
-        items:[
+    initComponent: function(){
+        this.items = [
             {
                 xtype:'loginform',
                 title:'Login'
@@ -27,7 +28,8 @@ Ext.define('AliveTracker.view.Main', {
             },
             {
                 xtype:'forgotpasswordform',
-                title:'Forgot Password'
+                title:'Forgot Password',
+                itemId: 'forgotpasswordform'
             },
             {
                 xtype:'registerform',
@@ -57,7 +59,7 @@ Ext.define('AliveTracker.view.Main', {
                 xtype:'assignuserstoprojectsform',
                 title:'Assign Users'
             }
-
-        ]
+        ];
+        this.callParent(arguments);
     }
 });

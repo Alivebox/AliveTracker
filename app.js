@@ -1,6 +1,6 @@
 Ext.Loader.setConfig({enabled:true});
 
-Ext.Loader.setPath('Ext.ux.DataView', 'extjs/examples/ux/DataView');
+Ext.Loader.setPath('Ext.ux', 'extjs/examples/ux/');
 
 Ext.application({
 
@@ -15,7 +15,6 @@ Ext.application({
         'reports.ReportsController',
         'projects.LogBookController',
         'reports.ReportsController',
-        'utils.ItemSelectorController',
         'authentication.LoginController',
         'authentication.ForgotPasswordController',
         'authentication.ProfileController',

@@ -2,8 +2,14 @@ Ext.define('AliveTracker.view.reports.Reports', {
     extend:'Ext.Container',
     xtype:'reportsform',
     layout:'anchor',
+    requires:[
+        'Ext.form.*',
+        'Ext.tip.QuickTipManager'
+    ],
     initComponent:function () {
+        //var dateRange = this.createDateRangeComponent();
         this.items = [
+            //dateRange,
             {
                 xtype:'label',
                 name:'reports',
@@ -68,5 +74,38 @@ Ext.define('AliveTracker.view.reports.Reports', {
     },
     onExportReportClick:function () {
         this.fireEvent('exportReport');
+    },
+    createDateRangeComponent: function(){
+        var dateRange = Ext.create('Ext.form.Panel', {
+            renderTo: 'dr',
+            frame: true,
+            title: 'Date Range',
+            bodyPadding: '5 5 0',
+            width: 350,
+            fieldDefaults: {
+                labelWidth: 125,
+                msgTarget: 'side',
+                autoFitErrors: false
+            },
+            defaults: {
+                width: 300
+            },
+            defaultType: 'datefield',
+            items: [{
+                fieldLabel: 'Start Date',
+                name: 'startdt',
+                itemId: 'startdt',
+                vtype: 'daterange',
+                endDateField: 'enddt'
+            }, {
+                fieldLabel: 'End Date',
+                name: 'enddt',
+                itemId: 'enddt',
+                vtype: 'daterange',
+                startDateField: 'startdt'
+            }]
+        });
+        debugger;
+        return dateRange;
     }
 })

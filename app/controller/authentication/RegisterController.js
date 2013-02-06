@@ -5,6 +5,10 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     requires:[
         'AliveTracker.view.authentication.Register'
     ],
+
+    /**
+     * Initializes components listeners
+     */
     init:function () {
         this.control({
             'registerform':{
@@ -13,6 +17,9 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
             }
         });
     },
+    /**
+     * Handles the logic of the register action
+     */
     onRegisterAction:function () {
         debugger;
     }

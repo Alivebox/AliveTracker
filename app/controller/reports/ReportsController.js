@@ -15,6 +15,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         'Users',
         'Groups'
     ],
+
+    /**
+     * Initializes components listeners
+     */
     init: function(){
         this.control({
             'reportsform': {
@@ -23,15 +27,26 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Exports the report
+     */
     onExportReport: function(){
         debugger;
     },
+
+    /**
+     * Initializes components listeners
+     */
     onReportsAfterRender: function(){
         this.loadProjectsStore();
         this.loadUsersStore();
         this.loadGoupsStore();
     },
 
+    /**
+     * Loads the Projects store
+     */
     loadProjectsStore: function(){
         var tmpProjectsStore = Ext.getStore('Projects');
         tmpProjectsStore.load({
@@ -39,6 +54,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Loads the Users store
+     */
     loadUsersStore: function(){
         var tmpUsersStore = Ext.getStore('Users');
         tmpUsersStore.load({
@@ -46,6 +65,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Loads the Groups store
+     */
     loadGoupsStore: function(){
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({

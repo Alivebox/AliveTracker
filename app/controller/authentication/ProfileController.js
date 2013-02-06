@@ -5,6 +5,10 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
     requires : [
         'AliveTracker.view.authentication.Profile'
     ],
+
+    /**
+     * Initializes components listeners
+     */
     init: function(){
         this.control({
             'profileform': {
@@ -14,9 +18,17 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
             }
         });
     },
+
+    /**
+     * Saves de data of the current profile
+     */
     onSaveAction: function(){
         debugger;
     },
+
+    /**
+     * Cancels all information of the profile edition
+     */
     onCancelAction: function(){
         debugger;
     }

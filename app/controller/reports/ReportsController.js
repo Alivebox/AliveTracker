@@ -15,6 +15,28 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         'Users',
         'Groups'
     ],
+    refs: [
+        {
+            ref: 'group',
+            selector: 'reportsform #groupReports'
+        },
+        {
+            ref: 'project',
+            selector: 'reportsform #projectReports'
+        },
+        {
+            ref: 'user',
+            selector: 'reportsform #userReports'
+        },
+        {
+            ref: 'dateRange',
+            selector: 'reportsform #dateRangeReports'
+        }
+    ],
+
+    /**
+     * Initializes components listeners
+     */
     init: function(){
         this.control({
             'reportsform': {
@@ -23,15 +45,30 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Exports the report
+     */
     onExportReport: function(){
+        var tmpGroup = this.getGroup().value;
+        var tmpProject = this.getProject().value;
+        var tmpUser = this.getUser().value;
+        var tmpDateRange = this.getDateRange();
         debugger;
     },
+
+    /**
+     * Initializes components listeners
+     */
     onReportsAfterRender: function(){
         this.loadProjectsStore();
         this.loadUsersStore();
         this.loadGoupsStore();
     },
 
+    /**
+     * Loads the Projects store
+     */
     loadProjectsStore: function(){
         var tmpProjectsStore = Ext.getStore('Projects');
         tmpProjectsStore.load({
@@ -39,6 +76,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Loads the Users store
+     */
     loadUsersStore: function(){
         var tmpUsersStore = Ext.getStore('Users');
         tmpUsersStore.load({
@@ -46,6 +87,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         });
     },
+
+    /**
+     * Loads the Groups store
+     */
     loadGoupsStore: function(){
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({

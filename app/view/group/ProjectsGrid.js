@@ -31,4 +31,4 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
 
         me.callParent(arguments);
     }
-})
+});

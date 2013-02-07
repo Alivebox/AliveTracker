@@ -34,4 +34,4 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
         });
         this.callParent(arguments);
     }
-})
+});

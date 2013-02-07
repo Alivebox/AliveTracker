@@ -28,4 +28,4 @@ Ext.define('AliveTracker.view.projects.ProjectBook', {
             }
         ]
     }
-})
+});

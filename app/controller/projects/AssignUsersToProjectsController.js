@@ -11,6 +11,16 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     stores:[
         'Users'
     ],
+    refs: [
+        {
+            ref: 'itemSelector',
+            selector: 'assignuserstoprojectsform #itemselectorUsers'
+        }
+    ],
+
+    /**
+     * Initializes components listeners
+     */
     init:function () {
         this.control({
             'assignuserstoprojectsform':{
@@ -20,10 +30,17 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
             }
         });
     },
+
+    /**
+     * It´s called after rendere to load al the stores needed
+     */
     onUserAfterRender:function () {
         this.loadUsersStore();
     },
 
+    /**
+     * Loads the Users store
+     */
     loadUsersStore:function () {
         var tmpUsersStore = Ext.getStore('Users');
         tmpUsersStore.load({
@@ -31,9 +48,18 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
             }
         });
     },
+
+    /**
+     * Saves de data of the current profile
+     */
     onSaveAction:function () {
+        var tmpItemSelector = this.getItemSelector().items.items[0].lastValue;
         debugger;
     },
+
+    /**
+     * Cancels all information of the profile edition
+     */
     onCancelAction:function () {
         debugger;
     }

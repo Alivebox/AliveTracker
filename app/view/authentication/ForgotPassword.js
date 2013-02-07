@@ -5,6 +5,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
         this.items = [
             {
                 xtype:'textfield',
+                id:'emailForgotPasswordView',
                 name:'email',
                 fieldLabel:'Email',
                 allowBlank:false,
@@ -27,4 +28,4 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
         this.fireEvent('sendResetInstruccions');
     }
 
-})
+});

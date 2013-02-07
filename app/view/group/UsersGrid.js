@@ -29,4 +29,4 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
 
         me.callParent(arguments);
     }
-})
+});

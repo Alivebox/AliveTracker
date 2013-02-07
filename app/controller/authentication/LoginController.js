@@ -10,8 +10,20 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         {
             ref: 'main',
             selector: 'main'
+        },
+        {
+            ref: 'username',
+            selector: 'loginform #userNameLoginView'
+        },
+        {
+            ref: 'password',
+            selector: 'loginform #passwordLoginView'
         }
     ],
+
+    /**
+     * Initializes components listeners
+     */
     init:function () {
         this.control({
             'loginform':{
@@ -22,6 +34,10 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             }
         });
     },
+
+    /**
+     * Changes current view to ForgotPassword view
+     */
     onNavigateToForgotPasswordView:function () {
         var tmpMainView = this.getMain();
         var tmpForgotPasswordForm = tmpMainView.child('#forgotpasswordform');
@@ -29,9 +45,19 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         tmpMainView.setActiveTab(tmpForgotPasswordForm);
 
     },
+
+    /**
+     * Handles the logic of the login action
+     */
     onLoginAction:function () {
+        var tmpUsername = this.getUsername().value;
+        var tmpPassword = this.getPassword().value;
         debugger;
     },
+
+    /**
+     * Handles the logic of the sign-up action
+     */
     onSignUpAction:function () {
         debugger;
     }

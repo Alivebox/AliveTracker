@@ -11,6 +11,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                 items:[
                     {
                         xtype:'image',
+                        id:'imageProfile',
                         name:'image',
                         src:'/AliveTracker/resources/icons/user.png'
                     },
@@ -19,6 +20,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                         items:[
                             {
                                 xtype:'textfield',
+                                id:'emailProfile',
                                 name:'email',
                                 fieldLabel:'Email',
                                 allowBlank:false,
@@ -27,6 +29,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             },
                             {
                                 xtype:'textfield',
+                                id:'nameProfile',
                                 name:'name',
                                 fieldLabel:'Name',
                                 allowBlank:false,
@@ -34,6 +37,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             },
                             {
                                 xtype:'textfield',
+                                id:'passwordProfile',
                                 name:'password',
                                 fieldLabel:'Password',
                                 allowBlank:false,
@@ -44,6 +48,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             },
                             {
                                 xtype:'textfield',
+                                id:'confirmPasswordProfile',
                                 name:'confirmPassword',
                                 fieldLabel:'Confirm Password',
                                 allowBlank:false,
@@ -90,4 +95,4 @@ Ext.define('AliveTracker.view.authentication.Profile', {
     onCancelClick:function () {
         this.fireEvent('cancelAction');
     }
-})
+});

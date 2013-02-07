@@ -5,6 +5,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
         this.items = [
             {
                 xtype:'textfield',
+                id:'emailRegister',
                 name:'email',
                 fieldLabel:'Email',
                 allowBlank:false,
@@ -13,6 +14,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
             },
             {
                 xtype:'textfield',
+                id:'passwordRegister',
                 name:'password',
                 fieldLabel:'Password',
                 allowBlank:false,
@@ -26,6 +28,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
                     {
                         xtype:'checkboxfield',
                         boxLabel:'Sign me up for newsletter',
+                        id:'newsletterSelectedRegister',
                         name:'newsletterSelected',
                         inputValue:'1'
                     },
@@ -47,4 +50,4 @@ Ext.define('AliveTracker.view.authentication.Register', {
     onRegisterActionClick:function () {
         this.fireEvent('registerAction');
     }
-})
+});

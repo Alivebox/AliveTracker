@@ -48,7 +48,6 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     init: function(){
         this.control({
             'reportsform': {
-                afterrender: this.onReportsAfterRender,
                 exportReport: this.onExportReport
             }
         });

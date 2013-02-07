@@ -24,7 +24,6 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     init:function () {
         this.control({
             'assignuserstoprojectsform':{
-                afterrender:this.onUserAfterRender,
                 saveAction:this.onSaveAction,
                 cancelAction:this.onCancelAction
             }

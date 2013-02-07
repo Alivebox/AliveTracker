@@ -1,11 +1,11 @@
 Ext.define('AliveTracker.view.authentication.Login', {
-    extend:'Ext.Container',
+    extend:'Ext.form.Panel',
     xtype:'loginform',
     initComponent:function () {
         this.items = [
             {
                 xtype:'textfield',
-                id:'userNameLoginView',
+                itemId:'userNameLoginView',
                 name:'userName',
                 fieldLabel:'Username',
                 allowBlank:false,
@@ -13,7 +13,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
             },
             {
                 xtype:'textfield',
-                id:'passwordLoginView',
+                itemId:'passwordLoginView',
                 name:'password',
                 fieldLabel:'Password',
                 allowBlank:false,
@@ -28,6 +28,8 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         xtype:'button',
                         name:'login',
                         text:'Login',
+                        formBind: true,
+                        disabled: true,
                         listeners:{
                             scope:this,
                             click:this.onLoginClick
@@ -64,12 +66,12 @@ Ext.define('AliveTracker.view.authentication.Login', {
         this.callParent(arguments);
     },
     onForgotPasswordClick:function () {
-        this.fireEvent('navigateToForgotPasswordView');
+        this.fireEvent('navigateToForgotPasswordView',this);
     },
     onLoginClick:function () {
-        this.fireEvent('loginAction');
+        this.fireEvent('loginAction',this);
     },
     onSignUpClick:function () {
-        this.fireEvent('signUpAction');
+        this.fireEvent('signUpAction',this);
     }
 });

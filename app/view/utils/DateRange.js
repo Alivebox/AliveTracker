@@ -1,28 +1,28 @@
 Ext.define('AliveTracker.view.utils.DateRange', {
 
-    extend: 'Ext.Container',
-    xtype: 'daterange',
+    extend:'Ext.Container',
+    xtype:'daterange',
 
     initComponent:function () {
-        var tmpDateRange = Ext.create('Ext.container.Container', {
-            defaultType: 'datefield',
-            items: [{
-                fieldLabel: 'Start Date',
-                name: 'startdt',
-                itemId: 'startdt',
-                endDateField: 'enddt',
-                vtype: 'daterange'
-            }, {
-                fieldLabel: 'End Date',
-                name: 'enddt',
-                itemId: 'enddt',
-                startDateField: 'startdt',
-                vtype: 'daterange'
-            }]
-        });
-
         this.items = [
-            tmpDateRange
+            {
+                xtype:'datefield',
+                fieldLabel:'Start Date',
+                name:'startdt',
+                itemId:'startdt',
+                endDateField:'enddt',
+                required:true,
+                vtype:'daterange'
+            },
+            {
+                xtype:'datefield',
+                fieldLabel:'End Date',
+                name:'enddt',
+                itemId:'enddt',
+                startDateField:'startdt',
+                required:true,
+                vtype:'daterange'
+            }
         ];
         this.callParent(arguments);
     }

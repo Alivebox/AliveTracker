@@ -53,5 +53,31 @@ Ext.apply(Ext.form.field.VTypes, {
         return tmpParent;
     },
 
-    daterangeText:'Start date must be less than end date'
+    daterangeText:'Start date must be less than end date',
+
+    confirmPassword:function (argValue,argField) {
+        var tmpParent = argField.ownerCt;
+        var tmpComparePasswordField = tmpParent.getComponent(argField.comparePasswordField);
+        if( Ext.isEmpty(tmpComparePasswordField) ){
+            return false;
+        }
+        var tmpComparePasswordFieldValue = tmpComparePasswordField.getValue();
+        if( !this.passwordsFieldsShoulBeValidated(argValue,tmpComparePasswordFieldValue) ){
+            return true;
+        }
+        if( argValue === tmpComparePasswordFieldValue ){
+            return true;
+        }
+        return false;
+    },
+
+    passwordsFieldsShoulBeValidated: function(argFirstPasswordValue,argSecondPasswordValue){
+        if( Ext.isEmpty(argFirstPasswordValue) || Ext.isEmpty(argSecondPasswordValue) ){
+            return false;
+        }
+        return true;
+    },
+
+    confirmPasswordText: 'Passwords do not match.'
+
 });

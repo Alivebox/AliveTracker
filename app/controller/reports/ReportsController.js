@@ -18,19 +18,27 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     refs: [
         {
             ref: 'group',
-            selector: 'reportsform #groupReports'
+            selector: 'reportsform [itemId=groupReports]'
         },
         {
             ref: 'project',
-            selector: 'reportsform #projectReports'
+            selector: 'reportsform [itemId=projectReports]'
         },
         {
             ref: 'user',
-            selector: 'reportsform #userReports'
+            selector: 'reportsform [itemId=userReports]'
         },
         {
             ref: 'dateRange',
-            selector: 'reportsform #dateRangeReports'
+            selector: 'reportsform [itemId=dateRangeReports]'
+        },
+        {
+            ref:'startDate',
+            selector:'daterange [itemId=startdt]'
+        },
+        {
+            ref: 'endDate',
+            selector: 'daterange [itemId=enddt]'
         }
     ],
 
@@ -53,7 +61,9 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpGroup = this.getGroup().value;
         var tmpProject = this.getProject().value;
         var tmpUser = this.getUser().value;
-        var tmpDateRange = this.getDateRange();
+        var tmpDateRange = this.getDateRange().value;
+        var tmpStartDate = this.getStartDate().value;
+        var tmpEndDate = this.getEndDate().value;
         debugger;
     },
 

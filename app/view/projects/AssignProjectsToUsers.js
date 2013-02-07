@@ -22,7 +22,7 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 items:[
                     {
                         xtype:'itemselector',
-                        id:'itemselectorProjects',
+                        itemId:'itemselectorProjects',
                         store:'Projects',
                         fieldLable:'Select Projects',
                         displayField:'name',
@@ -60,10 +60,10 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveAction');
+        this.fireEvent('saveAction',this);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelAction');
+        this.fireEvent('cancelAction',this);
     }
 });
 

@@ -1,5 +1,5 @@
 Ext.define('AliveTracker.view.reports.Reports', {
-    extend:'Ext.Container',
+    extend:'Ext.form.Panel',
     xtype:'reportsform',
     layout:'anchor',
     requires:[
@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
-                id:'groupReports',
+                itemId:'groupReports',
                 name:'group',
                 allowBlank:false,
                 fieldLabel:'Group',
@@ -24,7 +24,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
-                id:'projectReports',
+                itemId:'projectReports',
                 name:'project',
                 allowBlank:false,
                 fieldLabel:'Project',
@@ -34,7 +34,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
-                id:'userReports',
+                itemId:'userReports',
                 name:'user',
                 allowBlank:false,
                 fieldLabel:'User',
@@ -44,20 +44,22 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
-                id:'dateRangeComboReports',
+                itemId:'dateRangeComboReports',
                 name:'dateRange',
                 allowBlank:true,
                 fieldLabel:'Date Range',
                 editable:false
             },
             {
-                xtype:'daterange',
-                id:'dateRangeReports'
+                xtype: 'daterange',
+                itemId: 'dateRangeReports'
             },
             {
                 xtype:'button',
                 name:'export',
                 text:'Export',
+                formBind: true,
+                disabled: true,
                 listeners:{
                     scope:this,
                     click:this.onExportReportClick
@@ -67,6 +69,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
         ];
         this.callParent(arguments);
     },
+
     onExportReportClick:function () {
         this.fireEvent('exportReport');
     }

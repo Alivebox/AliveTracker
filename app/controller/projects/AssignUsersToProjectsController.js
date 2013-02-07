@@ -35,7 +35,6 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
      * It´s called after rendere to load al the stores needed
      */
     onUserAfterRender:function () {
-        this.loadUsersStore();
     },
 
     /**

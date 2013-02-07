@@ -30,7 +30,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     },
 
     onUserAfterRender: function(){
-        this.loadGroupStore();
     },
 
     loadGroupStore: function(){

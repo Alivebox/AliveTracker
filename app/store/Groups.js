@@ -3,7 +3,7 @@ Ext.define('AliveTracker.store.Groups', {
     extend: 'Ext.data.Store',
 
     id: 'groupsStore',
-    autoLoad: false,
+    autoLoad: true,
     model: 'AliveTracker.model.Group'
 
 });

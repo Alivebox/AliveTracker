@@ -24,7 +24,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     },
 
     onUserAfterRender: function(){
-        this.loadGroupStore();
     },
 
     /**Load previous group data stored*/

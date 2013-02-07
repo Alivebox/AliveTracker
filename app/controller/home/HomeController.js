@@ -21,7 +21,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onHomeAfterRender: function(){
-        this.loadHomeStore();
     },
 
     loadHomeStore: function(){

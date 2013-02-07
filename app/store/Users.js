@@ -3,7 +3,7 @@ Ext.define('AliveTracker.store.Users', {
     extend: 'Ext.data.Store',
 
     id: 'userStore',
-    autoLoad: false,
+    autoLoad: true,
     model: 'AliveTracker.model.User'
 
 });

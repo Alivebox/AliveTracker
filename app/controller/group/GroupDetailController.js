@@ -18,8 +18,7 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         this.control({
             'groupdetailform': {
                 inviteUser: this.onShowInviteUserPopUp,
-                addProject : this.onShowProjectPopUp,
-                afterrender: this.onUserAfterRender
+                addProject : this.onShowProjectPopUp
             },
             'inviteuserpopup': {
                 inviteUser : this.onInviteUserMail
@@ -31,8 +30,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     },
 
     onUserAfterRender: function(){
-        this.loadGroupStore();
-        this.loadProjectStore();
     },
 
     loadGroupStore: function(){
@@ -45,6 +42,7 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     loadProjectStore: function(){
         var tmpProjectsStore = Ext.getStore('Projects');
+        tmpProjectsStore.removeAll();
         tmpProjectsStore.load({
             callback: function(){
             }

@@ -24,7 +24,6 @@ Ext.define("AliveTracker.controller.projects.AssignProjectsToUsersController", {
     init:function () {
         this.control({
             'assignprojectstousersform':{
-                afterrender:this.onUserAfterRender,
                 saveAction:this.onSaveAction,
                 cancelAction:this.onCancelAction
             }
@@ -35,7 +34,6 @@ Ext.define("AliveTracker.controller.projects.AssignProjectsToUsersController", {
      * It´s called after rendere to load al the stores needed
      */
     onUserAfterRender:function () {
-        this.loadProjectsStore();
     },
 
     /**
@@ -43,6 +41,7 @@ Ext.define("AliveTracker.controller.projects.AssignProjectsToUsersController", {
      */
     loadProjectsStore:function () {
         var tmpProjectsStore = Ext.getStore('Projects');
+        tmpProjectsStore.removeAll();
         tmpProjectsStore.load({
             callback:function () {
             }

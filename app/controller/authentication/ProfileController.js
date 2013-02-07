@@ -2,8 +2,24 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
 
     extend: "Ext.app.Controller",
 
-    requires : [
-        'AliveTracker.view.authentication.Profile'
+    refs: [
+
+        {
+            ref: 'email',
+            selector: 'profileform #emailProfile'
+        },
+        {
+            ref: 'name',
+            selector: 'profileform #nameProfile'
+        },
+        {
+            ref: 'password',
+            selector: 'profileform #passwordProfile'
+        },
+        {
+            ref:'confirmPassword',
+            selector:'profileform #confirmPasswordProfile'
+        }
     ],
 
     /**
@@ -23,6 +39,10 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
      * Saves de data of the current profile
      */
     onSaveAction: function(){
+        var tmpEmail = this.getEmail().value;
+        var tmpName = this.getName().value;
+        var tmpPassword = this.getPassword().value;
+        var tmpConfirmPassword = this.getConfirmPassword().value;
         debugger;
     },
 

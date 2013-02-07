@@ -5,6 +5,13 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     requires : [
         'AliveTracker.view.authentication.ForgotPassword'
     ],
+    refs: [
+
+        {
+            ref: 'email',
+            selector: 'forgotpasswordform #emailForgotPasswordView'
+        }
+    ],
 
     /**
      * Initializes components listeners
@@ -22,6 +29,7 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
      * Sends via email the reset password instructions
      */
     onSendResetInstruccions: function(){
+        var tmpEmail = this.getEmail().value;
         debugger;
     }
 

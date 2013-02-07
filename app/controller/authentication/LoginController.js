@@ -10,6 +10,14 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         {
             ref: 'main',
             selector: 'main'
+        },
+        {
+            ref: 'username',
+            selector: 'loginform #userNameLoginView'
+        },
+        {
+            ref: 'password',
+            selector: 'loginform #passwordLoginView'
         }
     ],
 
@@ -42,6 +50,8 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
      * Handles the logic of the login action
      */
     onLoginAction:function () {
+        var tmpUsername = this.getUsername().value;
+        var tmpPassword = this.getPassword().value;
         debugger;
     },
 

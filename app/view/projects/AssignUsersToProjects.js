@@ -16,6 +16,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                 items:[
                     {
                         xtype:'itemselector',
+                        id:'itemselectorUsers',
                         store:'Users',
                         fieldLable:'Select Users',
                         displayField:'name',

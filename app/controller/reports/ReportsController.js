@@ -15,6 +15,24 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         'Users',
         'Groups'
     ],
+    refs: [
+        {
+            ref: 'group',
+            selector: 'reportsform #groupReports'
+        },
+        {
+            ref: 'project',
+            selector: 'reportsform #projectReports'
+        },
+        {
+            ref: 'user',
+            selector: 'reportsform #userReports'
+        },
+        {
+            ref: 'dateRange',
+            selector: 'reportsform #dateRangeReports'
+        }
+    ],
 
     /**
      * Initializes components listeners
@@ -32,6 +50,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Exports the report
      */
     onExportReport: function(){
+        var tmpGroup = this.getGroup().value;
+        var tmpProject = this.getProject().value;
+        var tmpUser = this.getUser().value;
+        var tmpDateRange = this.getDateRange();
         debugger;
     },
 

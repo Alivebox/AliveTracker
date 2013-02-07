@@ -5,6 +5,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
         this.items = [
             {
                 xtype:'textfield',
+                id:'userNameLoginView',
                 name:'userName',
                 fieldLabel:'Username',
                 allowBlank:false,
@@ -12,6 +13,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
             },
             {
                 xtype:'textfield',
+                id:'passwordLoginView',
                 name:'password',
                 fieldLabel:'Password',
                 allowBlank:false,

@@ -11,6 +11,12 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     stores:[
         'Users'
     ],
+    refs: [
+        {
+            ref: 'itemSelector',
+            selector: 'assignuserstoprojectsform #itemselectorUsers'
+        }
+    ],
 
     /**
      * Initializes components listeners
@@ -47,6 +53,7 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
      * Saves de data of the current profile
      */
     onSaveAction:function () {
+        var tmpItemSelector = this.getItemSelector().items.items[0].lastValue;
         debugger;
     },
 

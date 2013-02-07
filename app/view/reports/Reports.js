@@ -14,6 +14,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
+                id:'groupReports',
                 name:'group',
                 allowBlank:false,
                 fieldLabel:'Group',
@@ -23,6 +24,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
+                id:'projectReports',
                 name:'project',
                 allowBlank:false,
                 fieldLabel:'Project',
@@ -32,6 +34,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
+                id:'userReports',
                 name:'user',
                 allowBlank:false,
                 fieldLabel:'User',
@@ -41,13 +44,15 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'combobox',
+                id:'dateRangeComboReports',
                 name:'dateRange',
                 allowBlank:true,
                 fieldLabel:'Date Range',
                 editable:false
             },
             {
-                xtype:'daterange'
+                xtype:'daterange',
+                id:'dateRangeReports'
             },
             {
                 xtype:'button',

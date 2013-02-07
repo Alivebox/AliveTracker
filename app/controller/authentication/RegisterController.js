@@ -5,6 +5,21 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     requires:[
         'AliveTracker.view.authentication.Register'
     ],
+    refs: [
+
+        {
+            ref: 'email',
+            selector: 'registerform #emailRegister'
+        },
+        {
+            ref: 'password',
+            selector: 'registerform #passwordRegister'
+        },
+        {
+            ref:'newsletterselected',
+            selector:'registerform #newsletterSelectedRegister'
+        }
+    ],
 
     /**
      * Initializes components listeners
@@ -21,6 +36,9 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
      * Handles the logic of the register action
      */
     onRegisterAction:function () {
+        var tmpPassword = this.getPassword().value;
+        var tmpEmail = this.getEmail().value;
+        var tmpNewsletterSelected = this.getNewsletterselected().value;
         debugger;
     }
 

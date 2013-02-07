@@ -3,10 +3,6 @@ Ext.define('AliveTracker.view.utils.DateRange', {
     extend: 'Ext.Container',
     xtype: 'daterange',
 
-    requires:[
-        'Ext.form.*'
-    ],
-
     initComponent:function () {
         var tmpDateRange = Ext.create('Ext.container.Container', {
             defaultType: 'datefield',

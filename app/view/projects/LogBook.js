@@ -26,16 +26,23 @@ Ext.define('AliveTracker.view.projects.LogBook', {
             },
             {
                 xtype: 'container',
-                layout: 'anchor',
+                layout: 'column',
                 items: [
                     {
-                        xtype: 'datefield',
+                        xtype: 'datepicker',
                         name: 'toDate',
                         allowBlank: false,
                         text: 'Date'
                     },
-                    this.groupComboBox,
-                    this.projectComboBox
+                    {
+                        xtype: 'container',
+                        layout: 'anchor',
+                        items: [
+                            this.groupComboBox,
+                            this.projectComboBox
+                        ]
+                    }
+
                 ]
             },
             {

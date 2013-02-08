@@ -2,6 +2,11 @@ Ext.define('AliveTracker.view.utils.DateRange', {
 
     extend:'Ext.Container',
     xtype:'daterange',
+    mixins:{
+        labelable:'Ext.form.Labelable',
+        fieldAncestor:'Ext.form.FieldAncestor',
+        field:'Ext.form.field.Field'
+    },
 
     initComponent:function () {
         this.items = [
@@ -11,8 +16,8 @@ Ext.define('AliveTracker.view.utils.DateRange', {
                 name:'startdt',
                 itemId:'startdt',
                 endDateField:'enddt',
-                required:true,
-                vtype:'daterange'
+                vtype:'daterange',
+                hidden: this.hidden
             },
             {
                 xtype:'datefield',
@@ -20,10 +25,38 @@ Ext.define('AliveTracker.view.utils.DateRange', {
                 name:'enddt',
                 itemId:'enddt',
                 startDateField:'startdt',
-                required:true,
-                vtype:'daterange'
+                vtype:'daterange',
+                hidden: this.hidden
             }
         ];
         this.callParent(arguments);
+    },
+    setValue:function (argValue) {
+        var data=Ext.decode(argValue);
+        var tmpStartDate = this.getComponent('startdt');
+        var tmpEndDate = this.getComponent('enddt');
+        if (Ext.isEmpty(tmpStartDate) || Ext.isEmpty(tmpEndDate) || Ext.isEmpty(data) || data.length < 2) {
+            return;
+        }
+        tmpStartDate.setValue(Ext.Date.parse(data[0].value,'c'));
+        tmpEndDate.setValue(Ext.Date.parse(data[1].value,'c'));
+    },
+    getValue:function (argValue) {
+        var tmpStartDate = this.getComponent('startdt');
+        var tmpEndDate = this.getComponent('enddt');
+        if (Ext.isEmpty(tmpStartDate) || Ext.isEmpty(tmpEndDate) || Ext.isEmpty(tmpStartDate.getValue()) || Ext.isEmpty(tmpEndDate.getValue())) {
+            return null;
+        }
+        return "[{\"value\":\"" +tmpStartDate.getValue().toJSON()+ "\"},{\"value\":\""+tmpEndDate.getValue().toJSON()+"\"}]";
+    },
+    setHiddenProperty: function(argValue){
+        var tmpStartDate = this.getComponent('startdt');
+        var tmpEndDate = this.getComponent('enddt');
+        if (Ext.isEmpty(tmpStartDate) || Ext.isEmpty(tmpEndDate)) {
+            return;
+        }
+        this.setVisible(!argValue);
+        tmpStartDate.setVisible(!argValue);
+        tmpEndDate.setVisible(!argValue);
     }
 });

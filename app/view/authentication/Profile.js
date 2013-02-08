@@ -13,7 +13,6 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                 items:[
                     {
                         xtype:'image',
-                        id:'imageProfile',
                         name:'image',
                         src:'/AliveTracker/resources/icons/user.png'
                     },

@@ -45,14 +45,22 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'dateRangeComboReports',
-                name:'dateRange',
-                allowBlank:true,
+                name:'dateRangeCombo',
+                allowBlank:false,
                 fieldLabel:'Date Range',
-                editable:false
+                editable:false,
+                store: [[1,'Customized'],[2,'Last day'],[3,'Last 7 days'],[4,'Last 2 weeks'],[5,'Last month']],
+                listeners:{
+                    scope: this,
+                    change: this.onDateRangeComboChanged
+                }
             },
             {
                 xtype: 'daterange',
-                itemId: 'dateRangeReports'
+                itemId: 'dateRangeReports',
+                name: 'dateRangeField',
+                hidden: true
+
             },
             {
                 xtype:'button',
@@ -72,5 +80,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     onExportReportClick:function () {
         this.fireEvent('exportReport');
+    },
+    onDateRangeComboChanged:function () {
+        this.fireEvent('dateRangeComboSelection', this.getComponent('dateRangeComboReports').getValue(),this.getComponent('dateRangeReports'));
     }
 });

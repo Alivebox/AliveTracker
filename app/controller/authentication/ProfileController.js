@@ -25,15 +25,12 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
      * Saves de data of the current profile
      */
     onSaveAction:function (argEventSender) {
-        debugger;
         var tmpProfileFormBasic = this.getProfileform().getForm();
         if( !tmpProfileFormBasic.isValid() ){
             return;
         }
         var tmpModel = Ext.create('AliveTracker.model.authentication.ProfileForm');
         tmpProfileFormBasic.updateRecord(tmpModel);
-        debugger;
-        tmpProfileFormBasic.loadRecord(tmpModel);
     },
 
     /**

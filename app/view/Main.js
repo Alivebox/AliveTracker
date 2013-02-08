@@ -13,11 +13,16 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.projects.AssignProjectsToUsers',
         'AliveTracker.view.projects.AssignUsersToProjects',
-        'AliveTracker.view.home.Home'
+        'AliveTracker.view.home.Home',
+        'AliveTracker.view.projects.Calendar'
     ],
 
     initComponent: function(){
         this.items = [
+//            {
+//                xtype:'calendarview',
+//                title: 'Prueba Calendario'
+//            },
             {
                 xtype:'loginform',
                 title:'Login'
@@ -59,6 +64,7 @@ Ext.define('AliveTracker.view.Main', {
                 xtype:'assignuserstoprojectsform',
                 title:'Assign Users'
             }
+
         ];
         this.callParent(arguments);
     }

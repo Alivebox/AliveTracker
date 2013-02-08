@@ -14,7 +14,7 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     refs: [
         {
             ref: 'itemSelector',
-            selector: 'assignuserstoprojectsform #itemselectorUsers'
+            selector: 'assignuserstoprojectsform [itemId=itemselectorUsers]'
         }
     ],
 
@@ -24,7 +24,6 @@ Ext.define("AliveTracker.controller.projects.AssignUsersToProjectsController", {
     init:function () {
         this.control({
             'assignuserstoprojectsform':{
-                afterrender:this.onUserAfterRender,
                 saveAction:this.onSaveAction,
                 cancelAction:this.onCancelAction
             }

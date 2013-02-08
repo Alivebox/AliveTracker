@@ -13,11 +13,11 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         },
         {
             ref: 'username',
-            selector: 'loginform #userNameLoginView'
+            selector: 'loginform [itemId=userNameLoginView]'
         },
         {
             ref: 'password',
-            selector: 'loginform #passwordLoginView'
+            selector: 'loginform [itemId=passwordLoginView]'
         }
     ],
 

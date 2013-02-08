@@ -17,20 +17,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     ],
     refs: [
         {
-            ref: 'group',
-            selector: 'reportsform #groupReports'
-        },
-        {
-            ref: 'project',
-            selector: 'reportsform #projectReports'
-        },
-        {
-            ref: 'user',
-            selector: 'reportsform #userReports'
-        },
-        {
-            ref: 'dateRange',
-            selector: 'reportsform #dateRangeReports'
+            ref: 'reportsform',
+            selector: 'reportsform'
         }
     ],
 
@@ -40,21 +28,30 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     init: function(){
         this.control({
             'reportsform': {
-                afterrender: this.onReportsAfterRender,
-                exportReport: this.onExportReport
+                exportReport: this.onExportReport,
+                dateRangeComboSelection: this.onDateRangeComboSelection
             }
         });
+    },
+
+    onDateRangeComboSelection: function(argValue, argField){
+        if(argValue == 1){
+            argField.setHiddenProperty(false);
+        }else{
+            argField.setHiddenProperty(true);
+        }
     },
 
     /**
      * Exports the report
      */
     onExportReport: function(){
-        var tmpGroup = this.getGroup().value;
-        var tmpProject = this.getProject().value;
-        var tmpUser = this.getUser().value;
-        var tmpDateRange = this.getDateRange();
-        debugger;
+        var tmpReportsFormBasic = this.getReportsform().getForm();
+        if( !tmpReportsFormBasic.isValid() ){
+            return;
+        }
+        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm');
+        tmpReportsFormBasic.updateRecord(tmpModel);
     },
 
     /**

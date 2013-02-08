@@ -1,8 +1,10 @@
 Ext.define('AliveTracker.view.authentication.Profile', {
 
-    extend:'Ext.Container',
+    extend:'Ext.form.Panel',
     xtype:'profileform',
-
+    requires:[
+        'AliveTracker.view.utils.PasswordVerification'
+    ],
     initComponent:function () {
         this.items = [
             {
@@ -11,7 +13,6 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                 items:[
                     {
                         xtype:'image',
-                        id:'imageProfile',
                         name:'image',
                         src:'/AliveTracker/resources/icons/user.png'
                     },
@@ -20,7 +21,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                         items:[
                             {
                                 xtype:'textfield',
-                                id:'emailProfile',
+                                itemId:'emailProfile',
                                 name:'email',
                                 fieldLabel:'Email',
                                 allowBlank:false,
@@ -29,33 +30,15 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             },
                             {
                                 xtype:'textfield',
-                                id:'nameProfile',
+                                itemId:'nameProfile',
                                 name:'name',
                                 fieldLabel:'Name',
                                 allowBlank:false,
                                 maxLength:50
                             },
                             {
-                                xtype:'textfield',
-                                id:'passwordProfile',
-                                name:'password',
-                                fieldLabel:'Password',
-                                allowBlank:false,
-                                maxLength:20,
-                                minLength:8,
-                                inputType:'password'
-
-                            },
-                            {
-                                xtype:'textfield',
-                                id:'confirmPasswordProfile',
-                                name:'confirmPassword',
-                                fieldLabel:'Confirm Password',
-                                allowBlank:false,
-                                maxLength:20,
-                                minLength:8,
-                                inputType:'password'
-
+                                xtype: 'passwordverification',
+                                name:'password'
                             }
                         ]
                     }
@@ -69,6 +52,8 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                         xtype:'button',
                         name:'save',
                         text:'Save',
+                        formBind: true,
+                        disabled: true,
                         listeners:{
                             scope:this,
                             click:this.onSaveClick
@@ -90,9 +75,9 @@ Ext.define('AliveTracker.view.authentication.Profile', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveAction');
+        this.fireEvent('saveAction',this);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelAction');
+        this.fireEvent('cancelAction',this);
     }
 });

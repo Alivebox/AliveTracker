@@ -4,6 +4,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
     requires:[
         'AliveTracker.view.utils.ItemSelector'
     ],
+
     initComponent:function () {
         this.items = [
             {
@@ -16,7 +17,7 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
                 items:[
                     {
                         xtype:'itemselector',
-                        id:'itemselectorUsers',
+                        itemId:'itemselectorUsers',
                         store:'Users',
                         fieldLable:'Select Users',
                         displayField:'name',
@@ -55,10 +56,10 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveAction');
+        this.fireEvent('saveAction',this);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelAction');
+        this.fireEvent('cancelAction',this);
     }
 });
 

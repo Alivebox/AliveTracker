@@ -9,7 +9,7 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
 
         {
             ref: 'email',
-            selector: 'forgotpasswordform #emailForgotPasswordView'
+            selector: 'forgotpasswordform [itemId=emailForgotPasswordView]'
         }
     ],
 

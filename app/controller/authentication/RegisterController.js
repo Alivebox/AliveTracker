@@ -9,15 +9,15 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
 
         {
             ref: 'email',
-            selector: 'registerform #emailRegister'
+            selector: 'registerform [itemId=emailRegister]'
         },
         {
             ref: 'password',
-            selector: 'registerform #passwordRegister'
+            selector: 'registerform [itemId=passwordRegister]'
         },
         {
             ref:'newsletterselected',
-            selector:'registerform #newsletterSelectedRegister'
+            selector:'registerform [itemId=newsletterSelectedRegister]'
         }
     ],
 

@@ -1,36 +1,22 @@
 Ext.define('AliveTracker.controller.authentication.ProfileController', {
 
-    extend: "Ext.app.Controller",
+    extend:"Ext.app.Controller",
 
-    refs: [
-
+    refs:[
         {
-            ref: 'email',
-            selector: 'profileform #emailProfile'
-        },
-        {
-            ref: 'name',
-            selector: 'profileform #nameProfile'
-        },
-        {
-            ref: 'password',
-            selector: 'profileform #passwordProfile'
-        },
-        {
-            ref:'confirmPassword',
-            selector:'profileform #confirmPasswordProfile'
+            ref:'profileform',
+            selector:'profileform'
         }
     ],
 
     /**
      * Initializes components listeners
      */
-    init: function(){
+    init:function () {
         this.control({
-            'profileform': {
-                saveAction: this.onSaveAction,
-                cancelAction: this.onCancelAction
-
+            'profileform':{
+                saveAction:this.onSaveAction,
+                cancelAction:this.onCancelAction
             }
         });
     },
@@ -38,18 +24,19 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
     /**
      * Saves de data of the current profile
      */
-    onSaveAction: function(){
-        var tmpEmail = this.getEmail().value;
-        var tmpName = this.getName().value;
-        var tmpPassword = this.getPassword().value;
-        var tmpConfirmPassword = this.getConfirmPassword().value;
-        debugger;
+    onSaveAction:function (argEventSender) {
+        var tmpProfileFormBasic = this.getProfileform().getForm();
+        if( !tmpProfileFormBasic.isValid() ){
+            return;
+        }
+        var tmpModel = Ext.create('AliveTracker.model.authentication.ProfileForm');
+        tmpProfileFormBasic.updateRecord(tmpModel);
     },
 
     /**
      * Cancels all information of the profile edition
      */
-    onCancelAction: function(){
+    onCancelAction:function () {
         debugger;
     }
 

@@ -6,6 +6,10 @@ Ext.application({
 
     name: 'AliveTracker',
 
+    requires: [
+        'AliveTracker.default.Constants'
+    ],
+
     controllers: [
         'MainController',
         'home.HomeController',
@@ -20,7 +24,6 @@ Ext.application({
         'authentication.ProfileController',
         'authentication.RegisterController'
     ],
-
     launch: function(){
         Ext.create('Ext.container.Viewport', {
             layout: 'fit',

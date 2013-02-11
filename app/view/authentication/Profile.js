@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                     {
                         xtype:'image',
                         name:'image',
-                        src:'/AliveTracker/resources/icons/user.png'
+                        src: AliveTracker.default.Constants.PROFILE_LOGO_URL
                     },
                     {
                         xtype:'container',
@@ -74,10 +74,13 @@ Ext.define('AliveTracker.view.authentication.Profile', {
         ];
         this.callParent(arguments);
     },
+
     onSaveClick:function () {
         this.fireEvent('saveAction',this);
     },
+
     onCancelClick:function () {
         this.fireEvent('cancelAction',this);
     }
+
 });

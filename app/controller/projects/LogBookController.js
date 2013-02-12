@@ -9,6 +9,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref:'logBookGridHeader',
             selector:'logbookgridheader'
+        },
+        {
+            ref:'logBookGrid',
+            selector:'logbookgrid'
         }
     ],
     requires:[
@@ -103,6 +107,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * @param argDatePicker component
      */
     onDatePickerChange: function(argDatePicker){
+        argDatePicker.getValue();
+        this.getLogBookGrid().getStore().removeAll();
         debugger;
     }
 

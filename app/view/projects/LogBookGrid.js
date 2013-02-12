@@ -44,7 +44,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     width: 25,
                     items:[
                         {
-                            icon:'/AliveTracker/resources/icons/delete.png',
+                            icon:'resources/icons/delete.png',
                             handler: function(grid, rowIndex, colIndex) {
                                 grid.getStore().removeAt(rowIndex);
 

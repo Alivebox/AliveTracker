@@ -60,7 +60,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         xtype: 'button',
                         name: 'include',
                         text: null,
-                        icon: '/AliveTracker/resources/icons/add.png',
+                        icon: 'resources/icons/add.png',
                         formBind: true,
                         listeners: {
                             scope: this,

@@ -3,21 +3,13 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
     extend: 'Ext.Container',
     xtype: 'logbookgridheader',
     layout: 'column',
+
     initComponent: function(){
         this.activityTextField = this.onCreateActivityTextField();
         this.timeTextField = this.onCreateTimeTextField();
         this.items = [
             this.activityTextField,
             this.timeTextField,
-            {
-                xtype: 'button',
-                name: 'include',
-                text: '+',
-                listeners: {
-                    scope: this,
-                    click: "onAddNewActivity"
-                }
-            }
         ];
         this.callParent(arguments);
     },
@@ -40,18 +32,15 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
         var tmpNumberTextField = Ext.create('Ext.form.NumberField',{
             width:50,
             allowNegative:false,
+            allowBlank:false,
             fieldLabel: 'Time',
             labelAlign: 'top',
             value:1,
             name:'time',
             maxValue: 24,
+            minValue: 1,
             editable: false
         });
         return tmpNumberTextField;
-    },
-
-    /**Will send the email to the controller*/
-    onAddNewActivity:function () {
-        this.fireEvent('newActivity', this);
     }
 });

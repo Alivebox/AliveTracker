@@ -1,40 +1,60 @@
 Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
-    extend: 'Ext.Container',
-    xtype: 'logbookgrid',
-    layout: 'anchor',
-    items: [
-        {
-            xtype: 'grid',
-            columns: [
+    extend:'Ext.grid.Panel',
+    xtype:'logbookgrid',
+
+    initComponent:function () {
+        var me = this;
+
+        Ext.applyIf(me, {
+            columns:[
                 {
-                    xtype: 'gridcolumn',
-                    text: 'Group'
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text:'Group',
+                    sortable:false,
+                    dataIndex:'group'
                 },
                 {
-                    xtype: 'gridcolumn',
-                    text: 'Project'
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text:'Project',
+                    sortable:false,
+                    dataIndex:'project'
                 },
                 {
-                    xtype: 'gridcolumn',
-                    text: 'Activity'
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text:'Activity',
+                    sortable:false,
+                    dataIndex:'txtActivity'
                 },
                 {
-                    xtype: 'gridcolumn',
-                    text: 'Time(h)'
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text:'Time(h)',
+                    sortable:false,
+                    dataIndex:'time'
+                },
+                {
+                    xtype:'actioncolumn',
+                    menuDisabled:true,
+                    sortable:false,
+                    align : 'center',
+                    width: 25,
+                    items:[
+                        {
+                            icon:'/AliveTracker/resources/icons/delete.png',
+                            handler: function(grid, rowIndex, colIndex) {
+                                grid.getStore().removeAt(rowIndex);
+
+                            }
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            xtype: 'label',
-            name: 'total',
-            text: 'Total'
-        },
-        {
-            xtype: 'label',
-            name: 'hours',
-            text: '16h'
-        }
-    ]
+        });
 
+        me.callParent(arguments);
+    }
 });

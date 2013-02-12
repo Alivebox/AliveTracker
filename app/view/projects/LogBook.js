@@ -1,10 +1,11 @@
 Ext.define('AliveTracker.view.projects.LogBook', {
 
-    extend: 'Ext.Container',
+    extend: 'Ext.form.Panel',
     xtype: 'logBookform',
     requires : [
         'AliveTracker.view.projects.LogBookGridHeader',
-        'AliveTracker.view.projects.LogBookGrid'
+        'AliveTracker.view.projects.LogBookGrid',
+        'AliveTracker.view.utils.DatePickerField'
     ],
     models:[
         'Group',
@@ -29,10 +30,14 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                 layout: 'column',
                 items: [
                     {
-                        xtype: 'datepicker',
-                        name: 'toDate',
+                        xtype: 'datepickerfield',
+                        name: 'datepicker',
+                        itemId: 'datepickerLogBook',
                         allowBlank: false,
-                        text: 'Date'
+                        listeners:{
+                            scope: this,
+                            select: this.onDateSelectedAction
+                        }
                     },
                     {
                         xtype: 'container',
@@ -44,18 +49,63 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                     }
 
                 ]
+            },{
+                xtype: 'container',
+                layout: 'column',
+                items: [
+                    {
+                        xtype: 'logbookgridheader'
+                    },
+                    {
+                        xtype: 'button',
+                        name: 'include',
+                        text: null,
+                        icon: '/AliveTracker/resources/icons/add.png',
+                        formBind: true,
+                        listeners: {
+                            scope: this,
+                            click: this.onAddNewActivity
+                        }
+                    }
+                ]
+            }            ,
+            {
+                xtype: 'logbookgrid',
+                itemId: 'logbookgrid',
+                store: 'LogBook'
             },
             {
-                xtype: 'logbookgridheader'
+                xtype: 'label',
+                name: 'total',
+                text: 'Total'
             },
             {
-                xtype: 'logbookgrid'
+                xtype: 'label',
+                name: 'hours',
+                text: '16h'
             }
         ];
             this.callParent(arguments);
     },
 
-    /**Creates a comboBox which hold group store*/
+    /**
+     * Fires the newActivity event on the controller
+     */
+    onAddNewActivity:function () {
+        this.fireEvent('newActivity', this.getComponent('logbookgrid'));
+    },
+
+    /**
+     * Fires the datePickerChanged event on the controller
+     */
+    onDateSelectedAction: function()
+    {
+        this.fireEvent('datePickerChanged', this.getComponent(1).getComponent('datepickerLogBook'));
+    },
+
+    /**
+     * Creates a comboBox which hold group store
+     */
     onCreateGroupComboBox: function(){
         var tmpGroupComboBox = Ext.create('Ext.form.ComboBox', {
             name: 'group',
@@ -68,7 +118,9 @@ Ext.define('AliveTracker.view.projects.LogBook', {
         return tmpGroupComboBox;
     },
 
-    /**Creates a comboBox which hold project store*/
+    /**
+     * Creates a comboBox which hold project store
+     */
     onCreateProjectComboBox: function(){
         var tmpProjectComboBox = Ext.create('Ext.form.ComboBox', {
             name: 'project',

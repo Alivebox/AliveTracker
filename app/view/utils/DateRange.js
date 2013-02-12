@@ -17,7 +17,14 @@ Ext.define('AliveTracker.view.utils.DateRange', {
                 itemId:'startdt',
                 endDateField:'enddt',
                 vtype:'daterange',
-                hidden: this.hidden
+                hidden: this.hidden,
+                allowBlank: this.allowBlank,
+                listeners: {
+                    scope: this,
+                    select: function(){
+                        this.fireEvent('validitychange');
+                    }
+                }
             },
             {
                 xtype:'datefield',
@@ -26,7 +33,14 @@ Ext.define('AliveTracker.view.utils.DateRange', {
                 itemId:'enddt',
                 startDateField:'startdt',
                 vtype:'daterange',
-                hidden: this.hidden
+                hidden: this.hidden,
+                allowBlank: this.allowBlank,
+                listeners: {
+                    scope: this,
+                    select: function(){
+                        this.fireEvent('validitychange');
+                    }
+                }
             }
         ];
         this.callParent(arguments);
@@ -49,6 +63,22 @@ Ext.define('AliveTracker.view.utils.DateRange', {
         }
         return "[{\"value\":\"" +tmpStartDate.getValue().toJSON()+ "\"},{\"value\":\""+tmpEndDate.getValue().toJSON()+"\"}]";
     },
+
+    isValid: function(){
+        if(this.allowBlank){
+            return true;
+        }
+        if(!this.isVisible() ){
+            return true;
+        }
+        var tmpStartDate = this.getComponent('startdt');
+        var tmpEndDate = this.getComponent('enddt');
+        if (Ext.isEmpty(tmpStartDate) || Ext.isEmpty(tmpEndDate) || Ext.isEmpty(tmpStartDate.getValue()) || Ext.isEmpty(tmpEndDate.getValue())) {
+            return false;
+        }
+        return true;
+    },
+
     setHiddenProperty: function(argValue){
         var tmpStartDate = this.getComponent('startdt');
         var tmpEndDate = this.getComponent('enddt');

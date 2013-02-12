@@ -1,7 +1,9 @@
 Ext.define('AliveTracker.controller.authentication.ProfileController', {
 
     extend:"Ext.app.Controller",
-
+    requires:[
+        'AliveTracker.view.authentication.Profile'
+    ],
     refs:[
         {
             ref:'profileform',

@@ -31,7 +31,11 @@ Ext.define('AliveTracker.view.home.Home', {
                 },
                 {
                     xtype:'button',
-                    text:'New'
+                    text:'New',
+                    listeners: {
+                        scope: this,
+                        click: 'onCreateNewGroup'
+                    }
                 }
             ]
         };
@@ -66,6 +70,10 @@ Ext.define('AliveTracker.view.home.Home', {
             store: 'BelongGroups'
         };
         return tmpBelongGroupsViewer;
+    },
+
+    onCreateNewGroup: function() {
+        this.fireEvent('onCreateNewGroup', this);
     }
 
 });

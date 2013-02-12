@@ -9,12 +9,17 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
         Ext.applyIf(this,{
             tpl: [
                 '<tpl for=".">',
-                    '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">',
-                    '<div class="thumb"> <img src="{logoUrl}" title="{description}"/></div>',
-                    '<label for="name">{name}</label>',
+                '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">' +
+                    '<div id="delete">' +
+                        '<img id="{id}" class="deleteProject" src="/resources/icons/deleteIcon.png" title="Delete" style="float: right;"/></br>' +
+                    '</div>' +
+                    '<div class="thumb"> ' +
+                        '<img id="{name}" class="projectImage" src="{logoUrl}" title="{description}"/>' +
                     '</div>',
-                '</tpl>',
-                '<div class="x-clear"></div>'
+                '<label for="name">{name}</label>' +
+                    '</div>' +
+                    '</tpl>' +
+                    '<div class="x-clear"></div></br></br>'
             ],
             itemSelector: 'div.thumb-wrap',
             emptyText: 'No groups created',
@@ -24,14 +29,15 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                 Ext.create('Ext.ux.DataView.DragSelector', {})
             ],
             listeners: {
-                selectionchange: function(argDv, argNodes ){
-                    //var l = nodes.length,
-                    //    s = l !== 1 ? 's' : '';
-                    //this.up('panel').setTitle('Simple DataView (' + l + ' item' + s + ' selected)');
-                    alert('Imagen seleccionada')
-                }
+//                selectionchange: function(){
+//                    //var l = nodes.length,
+//                    //    s = l !== 1 ? 's' : '';
+//                    //this.up('panel').setTitle('Simple DataView (' + l + ' item' + s + ' selected)');
+//                    debugger;
+//                }
             }
         });
         this.callParent(arguments);
     }
+
 });

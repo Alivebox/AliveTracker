@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.projects.ProjectBook', {
             {
                 xtype: 'container',
                 layout: 'column',
-                border: 5,
+                border: 1,
                 style: {
                     borderColor: 'black',
                     borderStyle: 'solid'

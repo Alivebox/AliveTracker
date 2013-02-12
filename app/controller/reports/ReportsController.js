@@ -35,7 +35,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onDateRangeComboSelection: function(argValue, argField){
-        if(argValue == 1){
+        if(argValue == AliveTracker.default.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
             argField.setHiddenProperty(false);
         }else{
             argField.setHiddenProperty(true);

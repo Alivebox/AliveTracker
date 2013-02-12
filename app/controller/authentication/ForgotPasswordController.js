@@ -32,7 +32,4 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
         var tmpEmail = this.getEmail().value;
         debugger;
     }
-
-
-
 });

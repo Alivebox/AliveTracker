@@ -49,25 +49,31 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 allowBlank:false,
                 fieldLabel:'Date Range',
                 editable:false,
-                store: [[1,'Customized'],[2,'Last day'],[3,'Last 7 days'],[4,'Last 2 weeks'],[5,'Last month']],
+                store:[
+                    [AliveTracker.default.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
+                    [AliveTracker.default.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
+                    [AliveTracker.default.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.default.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.default.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
+                ],
                 listeners:{
-                    scope: this,
-                    change: this.onDateRangeComboChanged
+                    scope:this,
+                    change:this.onDateRangeComboChanged
                 }
             },
             {
-                xtype: 'daterange',
-                itemId: 'dateRangeReports',
-                name: 'dateRangeField',
-                hidden: true
-
+                xtype:'daterange',
+                itemId:'dateRangeReports',
+                name:'dateRangeField',
+                allowBlank:false,
+                hidden:true
             },
             {
                 xtype:'button',
                 name:'export',
                 text:'Export',
-                formBind: true,
-                disabled: true,
+                formBind:true,
+                disabled:true,
                 listeners:{
                     scope:this,
                     click:this.onExportReportClick
@@ -82,6 +88,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
         this.fireEvent('exportReport');
     },
     onDateRangeComboChanged:function () {
-        this.fireEvent('dateRangeComboSelection', this.getComponent('dateRangeComboReports').getValue(),this.getComponent('dateRangeReports'));
+        this.fireEvent('dateRangeComboSelection', this.getComponent('dateRangeComboReports').getValue(), this.getComponent('dateRangeReports'));
     }
 });

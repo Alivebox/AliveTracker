@@ -1,70 +1,124 @@
 Ext.define('AliveTracker.view.home.AddEditGroupPopUp', {
 
     extend:'Ext.window.Window',
-    xtype:'addprojectpopup',
+    xtype:'addeditprojectpopup',
     title:'Groups',
     height:400,
     width:400,
-    insert: true,
     renderTo: Ext.getBody(),
+    insert: true,
     initComponent:function () {
-        this.groupImage = this.onCreateImage();
+        this.logoUrlTextField = this.onCreateLogoUrlTextField();
+        this.submitButton = this.onCreateSubmitButton();
+        this.groupImageField = this.onCreateImage();
         this.items = [
-            this.groupImage,
             {
-                xtype: 'form',
+                xtype: 'container',
+                id: 'addEditGroupContainer',
+                name: 'homeGroup',
+                layout: 'column',
                 items: [
                     {
-                        xtype: 'filefield',
-                        name: 'photo',
-                        fieldLabel: 'Photo',
-                        labelWidth: 50,
-                        msgTarget: 'side',
-                        allowBlank: false,
-                        anchor: '100%',
-                        buttonText: 'Select Photo...'
-                    }
-                ],
-
-                buttons: [
-                    {
-                        text: 'Upload',
-                        handler: function(){
-                            var form = this.up('form').getForm();
-                            if(form.isValid()){
-                                form.submit({
-                                    waitMsg: 'Uploading your photo...',
-                                    success: function(fp, o) {
-                                        this.groupImage.setSource(o.result.file)
-                                    }
-                                });
+                        xtype: 'form',
+                        name: 'groupModelForm',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                name:'name',
+                                fieldLabel: 'Group name',
+                                allowBlank:false,
+                                maxLength:300
+                            },
+                            {
+                                xtype: 'textfield',
+                                name:'description',
+                                fieldLabel: 'Description',
+                                allowBlank:false,
+                                maxLength:300
+                            },
+                            {
+                                xtype: 'textfield',
+                                name:'webSiteUrl',
+                                fieldLabel: 'Website URL',
+                                allowBlank:false,
+                                maxLength:300,
+                                vtype: 'url'
+                            },
+                            this.logoUrlTextField,
+                            this.submitButton,
+                            {
+                                xtype: 'button',
+                                name: 'cancel',
+                                text: 'Cancel',
+                                listeners: {
+                                    scope:this,
+                                    click:"onCloseWindows"
+                                }
                             }
-                        }
-                    }
+                        ]
+                    },
+                    this.groupImageField
                 ]
+
             }
         ],
             this.callParent(arguments);
     },
 
+    /**
+     * Create Ext.Img component
+     * */
     onCreateImage: function(){
         var tmpImage = Ext.create('Ext.Img', {
-            src: '',
             renderTo: Ext.getBody()
         });
         return tmpImage;
     },
 
-    onUploadPicture: function(){
-        var form = this.up('form').getForm();
-        debugger;
-        if(form.isValid()){
-            form.submit({
-                waitMsg: 'Uploading your photo...',
-                success: function(fp, o) {
-                    Ext.Msg.alert('Success', 'Your photo "' + o.result.file + '" has been uploaded.');
-                }
-            });
+    /**
+     * Fires an event to be caught by the controller
+     * */
+    onSubmitAction: function(){
+        if(this.insert){
+            this.fireEvent('onSaveAction', this);
+            return;
         }
+        this.fireEvent('onUpdateAction', this);
+    },
+
+    onCreateSubmitButton: function(){
+        var tmpSubmitButton = Ext.create('Ext.Button',{
+            name: 'submitButton',
+            text: 'Insert',
+            formBind: true,
+            disabled: true,
+            listeners: {
+                scope:this,
+                click:'onSubmitAction'
+            }
+        });
+        return tmpSubmitButton;
+    },
+
+    /**
+     * Send a event to the controller to close windows
+     * */
+    onCloseWindows: function(){
+        this.fireEvent('onCloseWindows', this);
+    },
+
+    /**
+     * Create a logoUrl textField
+     * */
+    onCreateLogoUrlTextField: function(){
+        var tmpLogoUrlTextField = Ext.create('Ext.form.field.Text',{
+            name:'logoUrl',
+            fieldLabel: 'Logo URL',
+            allowBlank:false,
+            maxLength:300,
+            vtype: 'url'
+        });
+        return tmpLogoUrlTextField;
     }
-});
+
+ });

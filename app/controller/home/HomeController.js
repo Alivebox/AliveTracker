@@ -12,6 +12,20 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         'BelongGroups'
     ],
 
+    refs:[
+        {
+            ref:'groupModelForm',
+            selector:'addeditprojectpopup form[name=groupModelForm]'
+        },
+        {
+            ref:'main',
+            selector:'main'
+        },
+        {
+            ref:'groupdetailform',
+            selector:'groupdetailform'
+        }
+    ],
     init:function () {
         this.control({
             'home': {
@@ -20,6 +34,11 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             },
             'homegroupsviewer': {
                 afterrender: this.onHomeGroupsAfterRender
+            },
+            'addeditprojectpopup': {
+                onSaveAction: this.onSaveAction,
+                onUpdateAction: this.onUpdateAction,
+                onCloseWindows: this.onCloseWindows
             }
         });
     },
@@ -30,8 +49,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onHomeGroupsAfterRender: function(agrAbstractComponent){
         var tmpMe = this;
         var tmpEl = agrAbstractComponent.getEl();
-        tmpEl.on('click', tmpMe.onConfirmDeleteDialog, tmpMe, {delegate: '.deleteProject'});
-        tmpEl.on('click', tmpMe.onSelectedProjectImage, tmpMe, {delegate: '.projectImage'});
+        tmpEl.on('click', tmpMe.onConfirmDeleteDialog, tmpMe, {delegate: '.deleteGroup'});
+        tmpEl.on('click', tmpMe.onEditGroup, tmpMe, {delegate: '.editGroup'});
+        tmpEl.on('click', tmpMe.onShowGroupDetailView, tmpMe, {delegate: '.groupImage'});
     },
 
     loadHomeStore: function(){
@@ -45,6 +65,13 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             callback: function(){
             }
         });
+    },
+
+    /**
+     * Show GroupDetailView when user click on the imagen in home
+     * */
+    onShowGroupDetailView: function(){
+        this.getMain().setActiveTab(this.getGroupdetailform());
     },
 
     /**
@@ -76,15 +103,90 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     /**
      * Selected project to be modified
      * */
-    onSelectedProjectImage: function(argEvent,argElement){
-        debugger;
+    onEditGroup: function(argEvent,argElement){
+        this.addEditGroupPopUp = this.getAddEditGroupPopUp(false, argElement);
     },
 
     /**
      * Show a popup to request for the data to create a new project
      * */
     onCreateNewGroup: function(){
-        this.addEditGroupPopUp = Ext.create('AliveTracker.view.home.AddEditGroupPopUp');
-        this.addEditGroupPopUp.show();
+        this.addEditGroupPopUp = this.getAddEditGroupPopUp(true, null);
+    },
+
+    /**
+     * Returns an instance of a addEditGroupPopUp created
+     * */
+    getAddEditGroupPopUp: function(argInsertFlat, argElement){
+        var tmpAddEditGroupPopUp = Ext.create('AliveTracker.view.home.AddEditGroupPopUp');
+        var tmpGroupForm = this.getGroupModelForm();
+        var tmpModel = Ext.create('AliveTracker.model.Group');
+        if(!argInsertFlat){
+            var tmpGroupStore = Ext.getStore('Groups');
+            tmpModel = tmpGroupStore.findRecord('name', argElement.getAttribute('id'));
+            tmpAddEditGroupPopUp.submitButton.setText('Update');
+            tmpGroupForm.loadRecord(tmpModel);
+            tmpAddEditGroupPopUp.groupImageField.setSrc('http://src.sencha.io/60/60/'+tmpAddEditGroupPopUp.logoUrlTextField.getValue());
+        }
+        tmpGroupForm.loadRecord(tmpModel);
+        tmpAddEditGroupPopUp.show();
+        tmpAddEditGroupPopUp.insert = argInsertFlat;
+        return tmpAddEditGroupPopUp;
+    },
+
+    /**
+     * Will add a new group to the store
+     * */
+    onSaveAction: function(argEvent){
+        var tmpWindow = argEvent;
+        var tmpGroupModel = this.onCreateModelFromGroupModelValues();
+        var tmpGroupStore = Ext.getStore('Groups');
+        tmpGroupStore.add(tmpGroupModel);
+        tmpGroupStore.commitChanges();
+        tmpWindow.close();
+    },
+
+    /**
+     * Will update a new group to the store
+     * */
+    onUpdateAction: function(argEvent){
+        var tmpWindow = argEvent;
+        this.getGroupModelForm().submit();
+        debugger;
+        this.onCreateModelFromGroupModelValues();
+        var tmpGroupModel = this.onCreateModelFromGroupModelValues();//this.getGroupModelForm().getRecord();
+        var tmpGroupStore = Ext.getStore('Groups');
+        tmpGroupStore.update
+        tmpGroupStore.commitChanges();
+        tmpWindow.close();
+    },
+
+    /**
+     * Creates group model from form values
+     * */
+    onCreateModelFromGroupModelValues: function(){
+        //TODO fix the ID
+        var tmpItem = this.getGroupModelForm().getValues();
+        var tmpId = this.getGroupModelForm().getRecord().getData().id;
+        if(tmpId === 0){
+            tmpId = 10;
+        }
+        var tmpModel = Ext.create('AliveTracker.model.Group', {
+            id: tmpId,
+            name: tmpItem.name,
+            description: tmpItem.description,
+            logoUrl: tmpItem.logoUrl,
+            webSiteUrl: tmpItem.webSiteUrl
+        });
+        return tmpModel;
+    },
+
+    /**
+     * Will close addEditGroupPopUp
+     * */
+    onCloseWindows: function(argEvent){
+        var tmpWindow = argEvent;
+        tmpWindow.close();
     }
+
 });

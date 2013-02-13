@@ -11,7 +11,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         this.items = [
             {
                 xtype: 'label',
-                name: 'groupName',
+                name: 'groupNameLabelField',
                 text: 'Group Name (detail)'
             },
             {

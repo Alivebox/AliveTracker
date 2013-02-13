@@ -1,7 +1,7 @@
-Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
+Ext.define('AliveTracker.view.home.HomeBelongGroupsViewer', {
 
     extend:'Ext.view.View',
-    xtype:'homegroupsviewer',
+    xtype:'homebelonggroupsviewer',
     requires : [
         'Ext.ux.DataView.DragSelector'
     ],
@@ -10,12 +10,8 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
             tpl: [
                 '<tpl for=".">',
                 '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">' +
-                    '<div id="editHomeGroupViewer" style="">' +
-                    '<img id="{id}" class="deleteGroup" src="resources/icons/deleteGroup.png" title="Delete" style="float: right;"/>' +
-                    '<img id="{name}" class="editGroup" src="resources/icons/editGroup.png" title="Edit" style="float: right;"/>' +
-                    '</div>' +
                     '<div class="thumb"> ' +
-                    '<img id="{name}" class="groupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
+                    '<img id="{name}" class="belongGroupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
                     '</div>',
                         '<label for="name">{name}</label>' +
                     '</div>' +

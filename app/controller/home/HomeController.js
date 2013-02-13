@@ -35,6 +35,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             'homegroupsviewer': {
                 afterrender: this.onHomeGroupsAfterRender
             },
+            'homebelonggroupsviewer': {
+                afterrender: this.onHomeBelongGroupsAfterRender
+            },
             'addeditprojectpopup': {
                 onSaveAction: this.onSaveAction,
                 onUpdateAction: this.onUpdateAction,
@@ -52,6 +55,12 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         tmpEl.on('click', tmpMe.onConfirmDeleteDialog, tmpMe, {delegate: '.deleteGroup'});
         tmpEl.on('click', tmpMe.onEditGroup, tmpMe, {delegate: '.editGroup'});
         tmpEl.on('click', tmpMe.onShowGroupDetailView, tmpMe, {delegate: '.groupImage'});
+    },
+
+    onHomeBelongGroupsAfterRender: function(agrAbstractComponent){
+        var tmpMe = this;
+        var tmpEl = agrAbstractComponent.getEl();
+        tmpEl.on('click', tmpMe.onShowGroupDetailView, tmpMe, {delegate: '.belongGroupImage'});
     },
 
     loadHomeStore: function(){
@@ -77,7 +86,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     /**
      * Delete a created project
      * */
-    onDeleteProject: function(argElement){
+    onDeleteGroup: function(argElement){
         var tmpGroupStore = Ext.getStore('Groups');
         tmpGroupStore.removeAt(tmpGroupStore.find('id', argElement.getAttribute('id')));
         tmpGroupStore.commitChanges();
@@ -87,13 +96,14 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Show a pop up to confirm the delete action
      * */
     onConfirmDeleteDialog: function(argEvent, argElement) {
+        debugger;
         Ext.MessageBox.confirm(
             'Confirm',
             Ext.util.Format.format(AliveTracker.default.Constants.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE),
             function(argButton){
                 if(argButton == 'yes')
                 {
-                    this.onDeleteProject(argElement)
+                    this.onDeleteGroup(argElement)
                 }
             },
             this

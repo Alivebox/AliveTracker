@@ -2,7 +2,8 @@ Ext.define('AliveTracker.view.home.Home', {
 
     extend:'Ext.Container',
     requires:[
-        'AliveTracker.view.home.HomeGroupsViewer'
+        'AliveTracker.view.home.HomeGroupsViewer',
+        'AliveTracker.view.home.HomeBelongGroupsViewer'
     ],
     xtype:'home',
 
@@ -66,7 +67,7 @@ Ext.define('AliveTracker.view.home.Home', {
 
     getBelongGroupsViewer:function () {
         var tmpBelongGroupsViewer = {
-            xtype: 'homegroupsviewer',
+            xtype: 'homebelonggroupsviewer',
             store: 'BelongGroups'
         };
         return tmpBelongGroupsViewer;

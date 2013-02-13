@@ -13,6 +13,7 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.projects.AssignProjectsToUsers',
         'AliveTracker.view.projects.AssignUsersToProjects',
+        'AliveTracker.view.projects.AssignUsersToGroups',
         'AliveTracker.view.home.Home',
         'AliveTracker.view.projects.Calendar'
     ],

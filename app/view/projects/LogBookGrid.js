@@ -27,14 +27,24 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text:'Activity',
                     sortable:false,
-                    dataIndex:'txtActivity'
+                    dataIndex:'txtActivity',
+                    editor: {
+                        xtype: 'textfield',
+                        allowBlank: false
+                    }
                 },
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
                     text:'Time(h)',
                     sortable:false,
-                    dataIndex:'time'
+                    dataIndex:'time',
+                    editor: {
+                        xtype: 'numberfield',
+                        allowBlank: false,
+                        maxValue: 24,
+                        minValue: 1
+                    }
                 },
                 {
                     xtype:'actioncolumn',
@@ -44,17 +54,33 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     width: 25,
                     items:[
                         {
-                            icon:'resources/icons/delete.png',
+                            icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
                             handler: function(grid, rowIndex, colIndex) {
-                                grid.getStore().removeAt(rowIndex);
-
+                                Ext.MessageBox.confirm(
+                                    'Confirm',
+                                    Ext.util.Format.format(AliveTracker.default.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    function(argButton){
+                                        if(argButton == 'yes')
+                                        {
+                                            grid.getStore().removeAt(rowIndex);
+                                        }
+                                    },
+                                    this
+                                );
                             }
                         }
                     ]
                 }
+            ],
+            selType: 'rowmodel',
+            plugins: [
+                Ext.create('Ext.grid.plugin.RowEditing', {
+                    clicksToEdit: 2
+                })
             ]
         });
 
         me.callParent(arguments);
     }
 });
+

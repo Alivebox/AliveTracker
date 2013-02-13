@@ -13,6 +13,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref:'logBookGrid',
             selector:'logbookgrid'
+        },
+        {
+            ref: 'totalTime',
+            selector: 'logBookform label[itemId=totalTime]'
         }
     ],
     requires:[
@@ -54,6 +58,19 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      *Function called after renderization
      */
     onUserAfterRender:function () {
+        this.onTotalTimeUpdate();
+    },
+
+    /**
+     * Calculates the sum of all time expended on one day
+     */
+    onTotalTimeUpdate: function(){
+        var tmpTotal = 0;
+        var tmpStore = this.getLogBookGrid().getStore();
+        tmpStore.each(function(record){
+            tmpTotal += record.data.time;
+        },this);
+        this.getTotalTime().setText('Total: ' + tmpTotal + ' h');
     },
 
     /**
@@ -90,6 +107,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpLogBookFormBasic.updateRecord(tmpModel);
         argEvent.store.add(tmpModel);
         this.onClearUsersSelection();
+        this.onTotalTimeUpdate();
     },
 
     /**
@@ -109,6 +127,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     onDatePickerChange: function(argDatePicker){
         argDatePicker.getValue();
         this.getLogBookGrid().getStore().removeAll();
+        this.onTotalTimeUpdate();
         debugger;
     }
 

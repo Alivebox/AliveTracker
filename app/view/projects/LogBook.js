@@ -60,7 +60,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         xtype: 'button',
                         name: 'include',
                         text: null,
-                        icon: 'resources/icons/add.png',
+                        icon: AliveTracker.default.Constants.ADD_ELEMENT_BUTTON,
                         formBind: true,
                         listeners: {
                             scope: this,
@@ -76,13 +76,9 @@ Ext.define('AliveTracker.view.projects.LogBook', {
             },
             {
                 xtype: 'label',
-                name: 'total',
+                itemId: 'totalTime',
+                name: 'totalTime',
                 text: 'Total'
-            },
-            {
-                xtype: 'label',
-                name: 'hours',
-                text: '16h'
             }
         ];
             this.callParent(arguments);

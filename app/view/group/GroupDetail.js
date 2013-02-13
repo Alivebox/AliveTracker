@@ -25,11 +25,11 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                     },
                     {
                         xtype: 'button',
-                        name: 'btnInvite',
-                        text: 'Invite Users',
+                        name: 'btnUsersManager',
+                        text: 'Select Users',
                         listeners: {
                             scope: this,
-                            click: this.onInviteUsersClick
+                            click: this.onManageUsersClick
                         }
                     }
                 ]
@@ -67,8 +67,8 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     },
 
     /**Fire a event to GroupDetailController*/
-    onInviteUsersClick: function(){
-        this.fireEvent('inviteUser');
+    onManageUsersClick: function(){
+        this.fireEvent('manageUser');
     },
 
     /**Fire a event to GroupDetailController*/

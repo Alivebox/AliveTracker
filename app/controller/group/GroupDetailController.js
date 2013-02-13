@@ -2,26 +2,34 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     extend: "Ext.app.Controller",
     requires : [
-        'AliveTracker.view.group.InviteUserPopUp',
-        'AliveTracker.view.group.AddProjectPopUp'
+        'AliveTracker.view.group.UsersManagerPopUp',
+        'AliveTracker.view.group.AddProjectPopUp',
+        'AliveTracker.view.group.UsersGrid'
     ],
     models:[
         'User',
-        'Project'
+        'Project',
+        'Role'
     ],
 
     stores:[
         'Users',
-        'Projects'
+        'Projects',
+        'Roles'
     ],
     init: function(){
         this.control({
             'groupdetailform': {
-                inviteUser: this.onShowInviteUserPopUp,
+                manageUser : this.onGroupUsersManagement,
                 addProject : this.onShowProjectPopUp
             },
-            'inviteuserpopup': {
-                inviteUser : this.onInviteUserMail
+            'assignuserstogroupsform': {
+                saveUsersAction : this.onSaveUsersChanges,
+                cancelUsersAction : this.onCancelUsersChanges
+            },
+            'assignprojectstousersform': {
+                saveProjectsToUsersAction : this.onSaveProjectsToUsersChanges,
+                cancelProjectsToUsersAction : this.onCancelProjectsToUsersChanges
             },
             'addprojectpopup': {
                 addProjectClick : this.onAddProject
@@ -50,8 +58,8 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     },
 
     /**Will show a pop up to request a user mail*/
-    onShowInviteUserPopUp: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.group.InviteUserPopUp');
+    onGroupUsersManagement: function(){
+        this.addProjectPopup = Ext.create('AliveTracker.view.group.UsersManagerPopUp');
         this.addProjectPopup.show();
     },
 
@@ -61,12 +69,33 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         this.addProjectPopup.show();
     },
 
-    /**This method will send a email*/
-    onInviteUserMail: function(argEvent){
-        var tmpWindow = argEvent;
+    /**This method will save all users changes*/
+    onSaveUsersChanges: function(argPopUp, argWindow){
+        var tmpWindow = argWindow;
+        debugger;
         tmpWindow.close();
     },
 
+    /**This method will cancel all users changes*/
+    onCancelUsersChanges: function(argWindow){
+        var tmpWindow = argWindow;
+        debugger;
+        tmpWindow.close();
+    },
+
+    /**This method will save all projects assigned to users changes*/
+    onSaveProjectsToUsersChanges: function(argPopUp, argWindow){
+        var tmpWindow = argWindow;
+        debugger;
+        tmpWindow.close();
+    },
+
+    /**This method will cancel all projects assigned to users changes*/
+    onCancelProjectsToUsersChanges: function(argWindow){
+        var tmpWindow = argWindow;
+        debugger;
+        tmpWindow.close();
+    },
     /**This method will add a project*/
     onAddProject: function(argEvent){
         var tmpWindow = argEvent;

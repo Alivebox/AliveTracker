@@ -7,17 +7,6 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
     initComponent:function () {
         this.items = [
             {
-                xtype:'label',
-                name:'userInfo',
-                text:'Juan Carlos Morales M. [jmorales@alivebox.com]'
-            },
-            {
-                xtype:'combobox',
-                name:'role',
-                allowBlank:false,
-                fieldLabel:'Role'
-            },
-            {
                 xtype:'container',
                 items:[
                     {
@@ -60,10 +49,10 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveAction',this);
+        this.fireEvent('saveProjectsToUsersAction',this,this.ownerCt);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelAction',this);
+        this.fireEvent('cancelProjectsToUsersAction',this.ownerCt);
     }
 });
 

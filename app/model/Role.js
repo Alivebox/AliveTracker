@@ -1,13 +1,13 @@
-Ext.define('AliveTracker.model.User', {
+Ext.define('AliveTracker.model.Role', {
 
     extend:'Ext.data.Model',
 
-    idProperty:'name',
+    idProperty:'id',
 
     fields:[
         {
-            name:'name',
-            type:'string'
+            name:'id',
+            type:'int'
         },
         {
             name:'role',
@@ -17,7 +17,7 @@ Ext.define('AliveTracker.model.User', {
 
     proxy: {
         type: 'ajax',
-        url: 'resources/data/users.json',
+        url: 'resources/data/roles.json',
         reader: {
             type: 'json',
             root: 'data'

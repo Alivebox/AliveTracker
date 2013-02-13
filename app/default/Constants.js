@@ -1,7 +1,10 @@
 Ext.define("AliveTracker.default.Constants",{
 
     statics: {
-        PROFILE_LOGO_URL: '/resources/icons/user.png',
+        PROFILE_LOGO_URL: 'resources/icons/user.png',
+        ADD_ELEMENT_BUTTON: 'resources/icons/add.png',
+        REMOVE_GRID_ROW_BUTTON: 'resources/icons/delete.png',
+        EDIT_GRID_ROW_BUTTON: 'resources/icons/edit.png',
         REPORTS_CUSTOM_DATERANGE_OPTION: 1,
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Customized',
         REPORTS_LAST_DAY_DATERANGE_OPTION: 2,
@@ -11,7 +14,13 @@ Ext.define("AliveTracker.default.Constants",{
         REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION: 4,
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
         REPORTS_LAST_MONTH_DATERANGE_OPTION: 5,
-        REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month'
+        REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
+        HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the project?',
+        GRID_DELETE_ROW_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the selected row?',
+        GROUP_DETAIL_EDIT_USER: 'Edit projects assigned to user',
+        GROUP_DETAIL_REMOVE_USER: 'Remove user from group',
+        GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
+        GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group'
 
     }
 

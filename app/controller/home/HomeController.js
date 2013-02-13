@@ -62,7 +62,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onConfirmDeleteDialog: function(argEvent, argElement) {
         Ext.MessageBox.confirm(
             'Confirm',
-            Ext.util.Format.format('Are you sure you want to delete the project?'),
+            Ext.util.Format.format(AliveTracker.default.Constants.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE),
             function(argButton){
                 if(argButton == 'yes')
                 {

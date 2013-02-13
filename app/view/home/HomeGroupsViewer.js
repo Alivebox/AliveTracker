@@ -11,7 +11,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                 '<tpl for=".">',
                 '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">' +
                     '<div id="delete">' +
-                        '<img id="{id}" class="deleteProject" src="/resources/icons/deleteIcon.png" title="Delete" style="float: right;"/></br>' +
+                        '<img id="{id}" class="deleteProject" src="resources/icons/deleteIcon.png" title="Delete" style="float: right;"/></br>' +
                     '</div>' +
                     '<div class="thumb"> ' +
                         '<img id="{name}" class="projectImage" src="{logoUrl}" title="{description}"/>' +

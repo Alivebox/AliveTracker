@@ -9,7 +9,7 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
         this.timeTextField = this.onCreateTimeTextField();
         this.items = [
             this.activityTextField,
-            this.timeTextField,
+            this.timeTextField
         ];
         this.callParent(arguments);
     },

@@ -20,6 +20,10 @@ Ext.define('AliveTracker.model.Group', {
         {
             name:'logoUrl',
             type:'string'
+        },
+        {
+            name:'webSiteUrl',
+            type:'string'
         }
     ],
 

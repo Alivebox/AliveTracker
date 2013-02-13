@@ -35,6 +35,11 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                 {
                     xtype: 'gridcolumn',
                     menuDisabled:true,
+                    text: 'Users'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    menuDisabled:true,
                     text: 'Created'
                 },
                 {
@@ -45,7 +50,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.default.Constants.EDIT_GRID_ROW_BUTTON,
+                            icon:AliveTracker.default.Constants.EDIT_USERS_GRID_BUTTON,
                             tooltip: AliveTracker.default.Constants.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
                             handler: function(grid, rowIndex, colIndex) {
                                 this.addProjectPopup = Ext.create('AliveTracker.view.group.UserRolesAssignmentPopUp');

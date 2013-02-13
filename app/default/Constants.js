@@ -5,6 +5,7 @@ Ext.define("AliveTracker.default.Constants",{
         ADD_ELEMENT_BUTTON: 'resources/icons/add.png',
         REMOVE_GRID_ROW_BUTTON: 'resources/icons/delete.png',
         EDIT_GRID_ROW_BUTTON: 'resources/icons/edit.png',
+        EDIT_USERS_GRID_BUTTON: 'resources/icons/users.png',
         REPORTS_CUSTOM_DATERANGE_OPTION: 1,
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Customized',
         REPORTS_LAST_DAY_DATERANGE_OPTION: 2,

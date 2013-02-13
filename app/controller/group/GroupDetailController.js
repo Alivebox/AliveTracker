@@ -27,6 +27,10 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
                 saveUsersAction : this.onSaveUsersChanges,
                 cancelUsersAction : this.onCancelUsersChanges
             },
+            'assignuserstoprojectsform': {
+                saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
+                cancelUsersToProjectAction : this.onCancelUsersToProjectChanges
+            },
             'assignprojectstousersform': {
                 saveProjectsToUsersAction : this.onSaveProjectsToUsersChanges,
                 cancelProjectsToUsersAction : this.onCancelProjectsToUsersChanges
@@ -78,6 +82,20 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     /**This method will cancel all users changes*/
     onCancelUsersChanges: function(argWindow){
+        var tmpWindow = argWindow;
+        debugger;
+        tmpWindow.close();
+    },
+
+    /**This method will save all users assigned to projects changes*/
+    onSaveUsersToProjectChanges: function(argPopUp, argWindow){
+        var tmpWindow = argWindow;
+        debugger;
+        tmpWindow.close();
+    },
+
+    /**This method will cancel all users assigned to projects changes*/
+    onCancelUsersToProjectChanges: function(argWindow){
         var tmpWindow = argWindow;
         debugger;
         tmpWindow.close();

@@ -51,10 +51,10 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveAction',this);
+        this.fireEvent('saveUsersToProjectAction',this ,this.ownerCt);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelAction',this);
+        this.fireEvent('cancelUsersToProjectAction',this.ownerCt);
     }
 });
 

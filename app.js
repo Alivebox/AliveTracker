@@ -14,8 +14,6 @@ Ext.application({
         'MainController',
         'home.HomeController',
         'group.GroupDetailController',
-        'projects.AssignProjectsToUsersController',
-        'projects.AssignUsersToProjectsController',
         'reports.ReportsController',
         'projects.LogBookController',
         'reports.ReportsController',

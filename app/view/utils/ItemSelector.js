@@ -9,7 +9,6 @@ Ext.define('AliveTracker.view.utils.ItemSelector', {
     buttons: undefined,
 
     requires:[
-        'Ext.ux.form.MultiSelect',
         'Ext.ux.form.ItemSelector'
     ],
 

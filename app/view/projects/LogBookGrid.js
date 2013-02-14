@@ -11,13 +11,6 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Group',
-                    sortable:false,
-                    dataIndex:'group'
-                },
-                {
-                    xtype:'gridcolumn',
-                    menuDisabled:true,
                     text:'Project',
                     sortable:false,
                     dataIndex:'project'
@@ -82,5 +75,6 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
         me.callParent(arguments);
     }
-});
+
+ });
 

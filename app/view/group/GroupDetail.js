@@ -7,7 +7,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         'AliveTracker.view.group.ProjectsGrid',
         'AliveTracker.view.users.AssignProjectsToUsers',
         'AliveTracker.view.users.AssignUsersToProjects',
-        'AliveTracker.view.projects.ProjectBook',
+        'AliveTracker.view.projects.LogBook',
         'AliveTracker.view.users.AssignUsersToGroups'
     ],
     groupData: null,
@@ -19,7 +19,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                 xtype: 'tabpanel',
                 items: [
                     {
-                        xtype:'projectbookform',
+                        xtype:'logbookform',
                         title:'Log book'
                     },
                     {

@@ -4,7 +4,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     refs:[
         {
             ref:'logBookForm',
-            selector:'logBookform'
+            selector:'logbookform'
         },
         {
             ref:'logBookGridHeader',
@@ -16,11 +16,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         },
         {
             ref: 'totalTime',
-            selector: 'logBookform label[itemId=totalTime]'
+            selector: 'logbookform label[itemId=totalTime]'
         }
     ],
     requires:[
-        'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.projects.LogBook',
         'AliveTracker.view.projects.LogBookGridHeader',
         'AliveTracker.view.projects.LogBookGrid'
@@ -43,13 +42,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      */
     init:function () {
         this.control({
-            'logBookform':{
-                afterrender:this.onUserAfterRender
-
-            },
-            ' logBookform':{
+            'logbookform':{
+                afterrender:this.onUserAfterRender,
                 newActivity:this.onAddNewActivity,
                 datePickerChanged:this.onDatePickerChange
+
             }
         });
     },
@@ -99,22 +96,24 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Create a new activity and add to the store
      */
     onAddNewActivity:function (argEvent) {
+        debugger;
         var tmpLogBookFormBasic = this.getLogBookForm().getForm();
         if (!tmpLogBookFormBasic.isValid()) {
             return;
         }
         var tmpModel = Ext.create('AliveTracker.model.projects.LogBookForm');
         tmpLogBookFormBasic.updateRecord(tmpModel);
-        argEvent.store.add(tmpModel);
+        var tmpLogBookStore = Ext.getStore('LogBook');
+        tmpLogBookStore.add(tmpModel);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
+        debugger;
     },
 
     /**
      * Clears all editable components on screen
      */
     onClearUsersSelection: function(){
-        this.getLogBookForm().groupComboBox.reset();
         this.getLogBookForm().projectComboBox.reset();
         this.getLogBookGridHeader().activityTextField.reset();
         this.getLogBookGridHeader().timeTextField.reset();

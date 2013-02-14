@@ -53,7 +53,7 @@ Ext.define('AliveTracker.view.Main', {
             },
             {
                 xtype:'projectbookform',
-                title:'Project book'
+                title:'Log book'
             }
 
         ];

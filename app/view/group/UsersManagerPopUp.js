@@ -6,7 +6,7 @@ Ext.define('AliveTracker.view.group.UsersManagerPopUp', {
     height:300,
     width:550,
     requieres:[
-        'AliveTracker.view.projects.AssignUsersToGroups'
+        'AliveTracker.view.users.AssignUsersToGroups'
     ],
     initComponent:function () {
         this.items = [

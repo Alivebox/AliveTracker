@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.projects.LogBookForm', {
+Ext.define('AliveTracker.model.projects.LogBook', {
 
     extend:'Ext.data.Model',
 

@@ -4,6 +4,6 @@ Ext.define('AliveTracker.store.LogBook', {
 
     id: 'logBookStore',
     autoLoad: true,
-    model: 'AliveTracker.model.projects.LogBookForm'
+    model: 'AliveTracker.model.projects.LogBook'
 
 });

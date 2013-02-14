@@ -48,10 +48,6 @@ Ext.define('AliveTracker.view.Main', {
             {
                 xtype:'groupdetailform',
                 title:'Group Detail'
-            },
-            {
-                xtype:'projectbookform',
-                title:'Log book'
             }
 
         ];

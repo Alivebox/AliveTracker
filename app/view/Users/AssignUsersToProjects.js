@@ -1,9 +1,10 @@
-Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
+Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
     extend:'Ext.container.Container',
-    xtype:'assignprojectstousersform',
+    xtype:'assignuserstoprojectsform',
     requires:[
         'AliveTracker.view.utils.ItemSelector'
     ],
+
     initComponent:function () {
         this.items = [
             {
@@ -11,11 +12,11 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                 items:[
                     {
                         xtype:'itemselector',
-                        itemId:'itemselectorProjects',
-                        store:'Projects',
-                        fieldLable:'Select Projects',
+                        itemId:'itemselectorUsers',
+                        store:'Users',
+                        fieldLable:'Select Users',
                         displayField:'name',
-                        valueField:'id',
+                        valueField:'name',
                         buttons:['add', 'remove']
                     }
                 ]
@@ -43,16 +44,17 @@ Ext.define('AliveTracker.view.projects.AssignProjectsToUsers', {
                             click:this.onCancelClick
                         }
                     }
+
                 ]
             }
         ];
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveProjectsToUsersAction',this,this.ownerCt);
+        this.fireEvent('saveUsersToProjectAction',this ,this.ownerCt);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelProjectsToUsersAction',this.ownerCt);
+        this.fireEvent('cancelUsersToProjectAction',this.ownerCt);
     }
 });
 

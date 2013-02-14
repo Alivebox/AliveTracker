@@ -6,7 +6,7 @@ Ext.define('AliveTracker.view.group.UserRolesAssignmentPopUp', {
     height:300,
     width:550,
     requieres:[
-        'AliveTracker.view.projects.AssignUsersToProjects'
+        'AliveTracker.view.users.AssignUsersToProjects'
     ],
     initComponent:function () {
         this.items = [

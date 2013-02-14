@@ -1,6 +1,6 @@
-Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
+Ext.define('AliveTracker.view.users.AssignUsersToGroups', {
     extend:'Ext.container.Container',
-    xtype:'assignuserstoprojectsform',
+    xtype:'assignuserstogroupsform',
     requires:[
         'AliveTracker.view.utils.ItemSelector'
     ],
@@ -51,10 +51,10 @@ Ext.define('AliveTracker.view.projects.AssignUsersToProjects', {
         this.callParent(arguments);
     },
     onSaveClick:function () {
-        this.fireEvent('saveUsersToProjectAction',this ,this.ownerCt);
+        this.fireEvent('saveUsersAction', this ,this.ownerCt);
     },
     onCancelClick:function () {
-        this.fireEvent('cancelUsersToProjectAction',this.ownerCt);
+        this.fireEvent('cancelUsersAction',this.ownerCt);
     }
 });
 

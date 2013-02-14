@@ -10,7 +10,7 @@ Ext.define('AliveTracker.view.home.AddEditGroupPopUp', {
     initComponent:function () {
         this.logoUrlTextField = this.onCreateLogoUrlTextField();
         this.submitButton = this.onCreateSubmitButton();
-        this.groupImageField = this.onCreateImage();
+        this.groupImageField = this.onCreateGroupImage();
         this.items = [
             {
                 xtype: 'container',
@@ -68,7 +68,7 @@ Ext.define('AliveTracker.view.home.AddEditGroupPopUp', {
     /**
      * Create Ext.Img component
      * */
-    onCreateImage: function(){
+    onCreateGroupImage: function(){
         var tmpImage = Ext.create('Ext.Img', {
             renderTo: Ext.getBody()
         });

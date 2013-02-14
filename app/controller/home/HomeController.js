@@ -29,7 +29,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     init:function () {
         this.control({
             'home': {
-                afterrender: this.onHomeAfterRender,
                 onCreateNewGroup: this.onCreateNewGroup
             },
             'homegroupsviewer': {
@@ -46,9 +45,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         });
     },
 
-    onHomeAfterRender: function(){
-    },
-
+    /**
+     * HomeGroups AfterRender
+     * */
     onHomeGroupsAfterRender: function(agrAbstractComponent){
         var tmpMe = this;
         var tmpEl = agrAbstractComponent.getEl();
@@ -57,10 +56,13 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         tmpEl.on('click', tmpMe.onShowGroupDetailView, tmpMe, {delegate: '.groupImage'});
     },
 
+    /**
+     * HomeBelongGroupViewer afterrender
+     * */
     onHomeBelongGroupsAfterRender: function(agrAbstractComponent){
         var tmpMe = this;
         var tmpEl = agrAbstractComponent.getEl();
-        tmpEl.on('click', tmpMe.onShowGroupDetailView, tmpMe, {delegate: '.belongGroupImage'});
+        tmpEl.on('click', tmpMe.onShowBelongGroupDetailView, tmpMe, {delegate: '.belongGroupImage'});
     },
 
     loadHomeStore: function(){
@@ -79,12 +81,32 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     /**
      * Show GroupDetailView when user click on the imagen in home
      * */
-    onShowGroupDetailView: function(){
+    onShowGroupDetailView: function(agrAbstractComponent, argElement){
+        this.navigateToGroupView('Groups', argElement);
+    },
+
+    /**
+     * Show GroupDetailView when user click on the imagen in home
+     * */
+    onShowBelongGroupDetailView: function(agrAbstractComponent, argElement){
+        this.navigateToGroupView('BelongGroups', argElement);
+    },
+
+    /**
+     * Change the view to groupDetail,
+     * Parameter defines the store that you want to extract the model
+     * */
+    navigateToGroupView: function(agrStore, argElement){
+        var tmpGroupsStore = Ext.getStore(agrStore);
+        var tmpModel = tmpGroupsStore.findRecord('id', argElement.getAttribute('id'));
+        this.getGroupdetailform().groupData = tmpModel;
+        this.getGroupdetailform().groupTitleLabel.setText(tmpModel.get('name'));
+        this.getGroupdetailform().groupImage.setSrc(AliveTracker.default.Constants.EXT_GROUP_IMAGE_IO_SIZE + tmpModel.get('logoUrl'));
         this.getMain().setActiveTab(this.getGroupdetailform());
     },
 
     /**
-     * Delete a created project
+     * Delete a created group
      * */
     onDeleteGroup: function(argElement){
         var tmpGroupStore = Ext.getStore('Groups');

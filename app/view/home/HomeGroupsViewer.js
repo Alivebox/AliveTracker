@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                     '<img id="{name}" class="editGroup" src="resources/icons/editGroup.png" title="Edit" style="float: right;"/>' +
                     '</div>' +
                     '<div class="thumb"> ' +
-                    '<img id="{name}" class="groupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
+                    '<img id="{id}" class="groupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
                     '</div>',
                         '<label for="name">{name}</label>' +
                     '</div>' +

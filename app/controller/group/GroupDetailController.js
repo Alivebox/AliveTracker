@@ -3,8 +3,8 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     extend: "Ext.app.Controller",
     requires : [
         'AliveTracker.view.group.UsersManagerPopUp',
-        'AliveTracker.view.group.AddProjectPopUp',
-        'AliveTracker.view.group.UsersGrid'
+        'AliveTracker.view.group.UsersGrid',
+        'AliveTracker.view.group.GroupProjects'
     ],
     models:[
         'User',
@@ -19,8 +19,7 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     ],
     init: function(){
         this.control({
-            'groupdetailform': {
-                manageUser : this.onGroupUsersManagement,
+            'groupprojects': {
                 addProject : this.onShowProjectPopUp
             },
             'assignuserstogroupsform': {
@@ -69,7 +68,8 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     /**Will show a pop up to request a project*/
     onShowProjectPopUp: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.group.AddProjectPopUp');
+        this.addProjectPopup = Ext.create('AliveTracker.view.group.UserRolesAssignmentPopUp');
+        this.addProjectPopup.title = 'New Project';
         this.addProjectPopup.show();
     },
 

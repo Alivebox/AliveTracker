@@ -1,7 +1,7 @@
-Ext.define('AliveTracker.view.home.AddEditGroupPopUp', {
+Ext.define('AliveTracker.view.home.AddGroupPopUp', {
 
     extend:'Ext.window.Window',
-    xtype:'addeditprojectpopup',
+    xtype:'addprojectpopup',
     title:'Groups',
     height:400,
     width:400,
@@ -79,11 +79,7 @@ Ext.define('AliveTracker.view.home.AddEditGroupPopUp', {
      * Fires an event to be caught by the controller
      * */
     onSubmitAction: function(){
-        if(this.insert){
             this.fireEvent('onSaveAction', this);
-            return;
-        }
-        this.fireEvent('onUpdateAction', this);
     },
 
     onCreateSubmitButton: function(){

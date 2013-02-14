@@ -7,6 +7,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         'AliveTracker.view.group.ProjectsGrid',
         'AliveTracker.view.users.AssignProjectsToUsers',
         'AliveTracker.view.users.AssignUsersToProjects',
+        'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.users.AssignUsersToGroups'
     ],
     groupData: null,
@@ -15,60 +16,24 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         this.groupImage = this.onCreateGroupImage();
         this.items = [
             {
-                xtype: 'container',
-                layout: 'vbox',
-                items: [
-                    this.groupTitleLabel,
-                    this.groupImage,
-                ]
-            },
-            {
-                xtype: 'container',
-                layout: 'column',
+                xtype: 'tabpanel',
                 items: [
                     {
-                        xtype: 'label',
-                        name: 'lblUsers',
-                        text: 'Users'
+                        xtype:'projectbookform',
+                        title:'Log book'
                     },
                     {
-                        xtype: 'button',
-                        name: 'btnUsersManager',
-                        text: 'Select Users',
-                        listeners: {
-                            scope: this,
-                            click: this.onManageUsersClick
-                        }
-                    }
-                ]
-            },
-            {
-                xtype: 'usersGrid',
-                store: 'Users'
-            },
-            {
-                xtype: 'container',
-                layout: 'column',
-                items: [
-                    {
-                        xtype: 'label',
-                        name: 'lblUsers',
-                        text: 'Projects'
+                        xtype: 'projectGrid',
+                        title:'Projects',
+                        store: 'Projects'
                     },
                     {
-                        xtype: 'button',
-                        name: 'btnAddProject',
-                        text: 'Add Project',
-                        listeners: {
-                            scope: this,
-                            click: this.onAddProjectClick
-                        }
+                        xtype: 'usersGrid',
+                        title:'Users',
+                        store: 'Users'
                     }
                 ]
-            },
-            {
-                xtype: 'projectGrid',
-                store: 'Projects'
+
             }
         ];
         this.callParent(arguments);

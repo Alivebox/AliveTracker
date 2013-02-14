@@ -52,7 +52,7 @@ Ext.define('AliveTracker.view.projects.LogBookForm', {
                                         xtype: 'button',
                                         name: 'include',
                                         text: null,
-                                        icon: AliveTracker.default.Constants.ADD_ELEMENT_BUTTON,
+                                        icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
                                         formBind: true,
                                         listeners: {
                                             scope: this,

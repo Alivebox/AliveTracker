@@ -1,30 +1,34 @@
 Ext.define('AliveTracker.view.group.ProjectsGrid', {
 
-    extend: 'Ext.grid.Panel',
-    xtype: 'projectGrid',
+    extend:'Ext.grid.Panel',
+    xtype:'projectGrid',
 
-    initComponent: function() {
+    initComponent:function () {
         var me = this;
 
         Ext.applyIf(me, {
-            columns: [
+            columns:[
                 {
-                    xtype: 'gridcolumn',
+                    xtype:'gridcolumn',
                     menuDisabled:true,
-                    text: 'Name',
-                    sortable : false,
-                    dataIndex: 'name',
-                    editor: {
-                        xtype: 'textfield',
-                        allowBlank: false
-                    }
+                    text:'Name',
+                    sortable:false,
+                    align:'center',
+                    dataIndex:'name'
                 },
                 {
-                    xtype: 'gridcolumn',
+                    xtype:'actioncolumn',
                     menuDisabled:true,
-                    text: 'Team',
-                    sortable : false,
-                    editor: {
+                    text:'Team',
+                    sortable:false,
+                    align:'center',
+                    items:[
+                        {
+                            icon:AliveTracker.defaults.Constants.EDIT_USERS_GRID_BUTTON,
+                            tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_SHOW_TEAM_MEMBERS
+                        }
+                    ],
+                    editor:{
                         xtype:'combobox',
                         allowBlank:true,
                         store:'Users',
@@ -33,41 +37,42 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     }
                 },
                 {
-                    xtype: 'gridcolumn',
+                    xtype:'gridcolumn',
                     menuDisabled:true,
-                    text: 'Users'
+                    align:'center',
+                    text:'Members'
                 },
                 {
-                    xtype: 'gridcolumn',
+                    xtype:'gridcolumn',
                     menuDisabled:true,
-                    text: 'Created'
+                    align:'center',
+                    text:'Created'
                 },
                 {
                     xtype:'actioncolumn',
                     menuDisabled:true,
-                    text: 'Buttons',
+                    text:'Buttons',
                     sortable:false,
-                    align : 'center',
+                    align:'center',
                     items:[
                         {
-                            icon:AliveTracker.default.Constants.EDIT_USERS_GRID_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
-                            handler: function(grid, rowIndex, colIndex) {
+                            icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
+                            tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
+                            handler:function (grid, rowIndex, colIndex) {
                                 this.addProjectPopup = Ext.create('AliveTracker.view.group.UserRolesAssignmentPopUp');
                                 this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
                                 this.addProjectPopup.show();
                             }
                         },
                         {
-                            icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_REMOVE_USER_OF_PROJECT,
-                            handler: function(grid, rowIndex, colIndex) {
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER_OF_PROJECT,
+                            handler:function (grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.default.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function(argButton){
-                                        if(argButton == 'yes')
-                                        {
+                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    function (argButton) {
+                                        if (argButton == 'yes') {
                                             grid.getStore().removeAt(rowIndex);
                                         }
                                     },
@@ -80,10 +85,10 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     ]
                 }
             ],
-            selType: 'cellmodel',
-            plugins: [
+            selType:'cellmodel',
+            plugins:[
                 Ext.create('Ext.grid.plugin.CellEditing', {
-                    clicksToEdit: 1
+                    clicksToEdit:1
                 })
             ]
         });

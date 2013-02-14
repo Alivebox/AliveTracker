@@ -5,12 +5,10 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     requires : [
         'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.users.AssignProjectsToUsers',
-        'AliveTracker.view.projects.ProjectBook',
         'AliveTracker.view.users.AssignUsersToGroups',
         'AliveTracker.view.group.GroupProjects',
         'AliveTracker.view.users.AssignUsersToProjects',
-        'AliveTracker.view.projects.LogBookForm',
-        'AliveTracker.view.users.AssignUsersToGroups'
+        'AliveTracker.view.projects.LogBookForm'
     ],
     groupData: null,
     initComponent: function(){

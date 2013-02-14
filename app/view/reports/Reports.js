@@ -50,11 +50,11 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 fieldLabel:'Date Range',
                 editable:false,
                 store:[
-                    [AliveTracker.default.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
-                    [AliveTracker.default.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
-                    [AliveTracker.default.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION],
-                    [AliveTracker.default.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION],
-                    [AliveTracker.default.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, AliveTracker.default.Constants.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
+                    [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
                 ],
                 listeners:{
                     scope:this,

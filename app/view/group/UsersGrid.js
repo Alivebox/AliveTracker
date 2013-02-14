@@ -23,8 +23,8 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.default.Constants.EDIT_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_EDIT_USER,
+                            icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
+                            tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_EDIT_USER,
                             handler: function(grid, rowIndex, colIndex) {
                                 this.addProjectPopup = Ext.create('AliveTracker.view.group.ProjectsManagerPopUp');
                                 this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
@@ -32,12 +32,12 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                             }
                         },
                         {
-                            icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_REMOVE_USER,
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER,
                             handler: function(grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.default.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function(argButton){
                                         if(argButton == 'yes')
                                         {

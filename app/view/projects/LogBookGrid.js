@@ -47,11 +47,11 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     width: 25,
                     items:[
                         {
-                            icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             handler: function(grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.default.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function(argButton){
                                         if(argButton == 'yes')
                                         {

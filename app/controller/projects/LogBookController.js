@@ -20,7 +20,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         }
     ],
     requires:[
-        'AliveTracker.view.projects.LogBook',
+        'AliveTracker.view.projects.LogBookForm',
         'AliveTracker.view.projects.LogBookGridHeader',
         'AliveTracker.view.projects.LogBookGrid'
     ],
@@ -28,7 +28,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     models:[
         'Group',
         'Project',
-        'projects.LogBookForm'
+        'projects.LogBook'
     ],
 
     stores:[
@@ -96,18 +96,16 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Create a new activity and add to the store
      */
     onAddNewActivity:function (argEvent) {
-        debugger;
         var tmpLogBookFormBasic = this.getLogBookForm().getForm();
         if (!tmpLogBookFormBasic.isValid()) {
             return;
         }
-        var tmpModel = Ext.create('AliveTracker.model.projects.LogBookForm');
+        var tmpModel = Ext.create('AliveTracker.model.projects.LogBook');
         tmpLogBookFormBasic.updateRecord(tmpModel);
         var tmpLogBookStore = Ext.getStore('LogBook');
         tmpLogBookStore.add(tmpModel);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
-        debugger;
     },
 
     /**

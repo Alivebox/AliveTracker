@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.projects.LogBook', {
+Ext.define('AliveTracker.view.projects.LogBookForm', {
 
     extend: 'Ext.form.Panel',
     xtype: 'logbookform',

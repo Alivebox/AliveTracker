@@ -112,7 +112,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Clears all editable components on screen
      */
     onClearUsersSelection: function(){
-        this.getLogBookForm().projectComboBox.reset();
+        this.getLogBookGridHeader().projectComboBox.reset();
         this.getLogBookGridHeader().activityTextField.reset();
         this.getLogBookGridHeader().timeTextField.reset();
     },
@@ -125,7 +125,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         argDatePicker.getValue();
         this.getLogBookGrid().getStore().removeAll();
         this.onTotalTimeUpdate();
-        debugger;
     }
 
 });

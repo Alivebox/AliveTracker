@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                     {
                         xtype:'image',
                         name:'image',
-                        src: AliveTracker.default.Constants.PROFILE_LOGO_URL
+                        src: AliveTracker.defaults.Constants.PROFILE_LOGO_URL
                     },
                     {
                         xtype:'container',

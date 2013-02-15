@@ -12,7 +12,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
     xtype: 'addusersgroup',
 
     requires : [
-        'AliveTracker.view.group.UsersGrid'
+        'AliveTracker.view.users.UsersGrid'
     ],
 
     initComponent: function() {

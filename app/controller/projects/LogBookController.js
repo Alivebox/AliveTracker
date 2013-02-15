@@ -4,7 +4,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     refs:[
         {
             ref:'logBookForm',
-            selector:'logBookform'
+            selector:'logbookform'
         },
         {
             ref:'logBookGridHeader',
@@ -16,12 +16,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         },
         {
             ref: 'totalTime',
-            selector: 'logBookform label[itemId=totalTime]'
+            selector: 'logbookform label[itemId=totalTime]'
         }
     ],
     requires:[
-        'AliveTracker.view.projects.ProjectBook',
-        'AliveTracker.view.projects.LogBook',
+        'AliveTracker.view.projects.LogBookForm',
         'AliveTracker.view.projects.LogBookGridHeader',
         'AliveTracker.view.projects.LogBookGrid'
     ],
@@ -29,7 +28,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     models:[
         'Group',
         'Project',
-        'projects.LogBookForm'
+        'projects.LogBook'
     ],
 
     stores:[
@@ -43,13 +42,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      */
     init:function () {
         this.control({
-            'logBookform':{
-                afterrender:this.onUserAfterRender
-
-            },
-            ' logBookform':{
+            'logbookform':{
+                afterrender:this.onUserAfterRender,
                 newActivity:this.onAddNewActivity,
                 datePickerChanged:this.onDatePickerChange
+
             }
         });
     },
@@ -103,9 +100,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         if (!tmpLogBookFormBasic.isValid()) {
             return;
         }
-        var tmpModel = Ext.create('AliveTracker.model.projects.LogBookForm');
+        var tmpModel = Ext.create('AliveTracker.model.projects.LogBook');
         tmpLogBookFormBasic.updateRecord(tmpModel);
-        argEvent.store.add(tmpModel);
+        var tmpLogBookStore = Ext.getStore('LogBook');
+        tmpLogBookStore.add(tmpModel);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
     },
@@ -114,8 +112,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Clears all editable components on screen
      */
     onClearUsersSelection: function(){
-        this.getLogBookForm().groupComboBox.reset();
-        this.getLogBookForm().projectComboBox.reset();
+        this.getLogBookGridHeader().projectComboBox.reset();
         this.getLogBookGridHeader().activityTextField.reset();
         this.getLogBookGridHeader().timeTextField.reset();
     },
@@ -128,7 +125,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         argDatePicker.getValue();
         this.getLogBookGrid().getStore().removeAll();
         this.onTotalTimeUpdate();
-        debugger;
     }
 
 });

@@ -1,4 +1,4 @@
-Ext.define("AliveTracker.default.Constants",{
+Ext.define("AliveTracker.defaults.Constants",{
 
     statics: {
         PROFILE_LOGO_URL: 'resources/icons/user.png',
@@ -6,6 +6,8 @@ Ext.define("AliveTracker.default.Constants",{
         REMOVE_GRID_ROW_BUTTON: 'resources/icons/delete.png',
         EDIT_GRID_ROW_BUTTON: 'resources/icons/edit.png',
         EDIT_USERS_GRID_BUTTON: 'resources/icons/users.png',
+        LEFT_ARROW_BUTTON: 'resources/icons/leftArrow.png',
+        RIGHT_ARROW_BUTTON: 'resources/icons/rightArrow.png',
         EXT_GROUP_IMAGE_IO_SIZE: 'http://src.sencha.io/60/60/',
         REPORTS_CUSTOM_DATERANGE_OPTION: 1,
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Customized',
@@ -22,7 +24,8 @@ Ext.define("AliveTracker.default.Constants",{
         GROUP_DETAIL_EDIT_USER: 'Edit projects assigned to user',
         GROUP_DETAIL_REMOVE_USER: 'Remove user from group',
         GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
-        GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group'
+        GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group',
+        GROUP_DETAIL_SHOW_TEAM_MEMBERS: 'Display team members'
     }
 
 });

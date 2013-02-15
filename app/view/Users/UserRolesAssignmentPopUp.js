@@ -1,17 +1,18 @@
-Ext.define('AliveTracker.view.group.UserRolesAssignmentPopUp', {
+Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
 
     extend:'Ext.window.Window',
     xtype:'userrolesassignmentpopup',
     title:'Users and Roles manager',
-    height:300,
-    width:550,
+    height:550,
+    width:350,
     requieres:[
         'AliveTracker.view.users.AssignUsersToProjects'
     ],
     initComponent:function () {
         this.items = [
             {
-                xtype: 'assignuserstoprojectsform'
+                xtype: 'assignuserstoprojectsform',
+                projectName: this.projectName
             }
         ],
             this.callParent(arguments);

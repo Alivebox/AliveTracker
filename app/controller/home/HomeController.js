@@ -100,7 +100,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         var tmpModel = tmpGroupsStore.findRecord('id', argElement.getAttribute('id'));
         this.getGroupdetailform().groupData = tmpModel;
         this.getGroupdetailform().groupTitleLabel.setText(tmpModel.get('name'));
-        this.getGroupdetailform().groupImage.setSrc(AliveTracker.default.Constants.EXT_GROUP_IMAGE_IO_SIZE + tmpModel.get('logoUrl'));
+        this.getGroupdetailform().groupImage.setSrc(AliveTracker.defaults.Constants.EXT_GROUP_IMAGE_IO_SIZE + tmpModel.get('logoUrl'));
         this.getMain().setActiveTab(this.getGroupdetailform());
     },
 
@@ -119,7 +119,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onConfirmDeleteDialog: function(argEvent, argElement) {
         Ext.MessageBox.confirm(
             'Confirm',
-            Ext.util.Format.format(AliveTracker.default.Constants.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE),
+            Ext.util.Format.format(AliveTracker.defaults.Constants.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE),
             function(argButton){
                 if(argButton == 'yes')
                 {

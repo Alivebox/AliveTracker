@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.group.UsersGrid', {
+Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
     xtype: 'usersGrid',
@@ -18,17 +18,17 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                 {
                     xtype:'actioncolumn',
                     menuDisabled:true,
-                    text: 'Delete',
+                    text: 'Buttons',
                     sortable:false,
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_REMOVE_USER,
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER,
                             handler: function(grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.default.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function(argButton){
                                         if(argButton == 'yes')
                                         {
@@ -37,6 +37,8 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                                     },
                                     this
                                 );
+
+
                             }
                         }
                     ]

@@ -7,7 +7,7 @@ Ext.application({
     name: 'AliveTracker',
 
     requires: [
-        'AliveTracker.default.Constants'
+        'AliveTracker.defaults.Constants'
     ],
 
     controllers: [

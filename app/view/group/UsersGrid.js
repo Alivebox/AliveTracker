@@ -18,19 +18,10 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                 {
                     xtype:'actioncolumn',
                     menuDisabled:true,
-                    text: 'Buttons',
+                    text: 'Delete',
                     sortable:false,
                     align : 'center',
                     items:[
-                        {
-                            icon:AliveTracker.default.Constants.EDIT_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.default.Constants.GROUP_DETAIL_EDIT_USER,
-                            handler: function(grid, rowIndex, colIndex) {
-                                this.addProjectPopup = Ext.create('AliveTracker.view.group.ProjectsManagerPopUp');
-                                this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
-                                this.addProjectPopup.show();
-                            }
-                        },
                         {
                             icon:AliveTracker.default.Constants.REMOVE_GRID_ROW_BUTTON,
                             tooltip: AliveTracker.default.Constants.GROUP_DETAIL_REMOVE_USER,
@@ -46,8 +37,6 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                                     },
                                     this
                                 );
-
-
                             }
                         }
                     ]

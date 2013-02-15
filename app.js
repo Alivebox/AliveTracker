@@ -20,7 +20,8 @@ Ext.application({
         'authentication.LoginController',
         'authentication.ForgotPasswordController',
         'authentication.ProfileController',
-        'authentication.RegisterController'
+        'authentication.RegisterController',
+        'group.AddUsersGroupController'
     ],
     launch: function(){
         Ext.create('Ext.container.Viewport', {

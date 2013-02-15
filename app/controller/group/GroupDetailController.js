@@ -2,7 +2,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
 
     extend: "Ext.app.Controller",
     requires : [
-        'AliveTracker.view.group.UsersManagerPopUp',
         'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.group.GroupProjects'
     ],
@@ -15,24 +14,17 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
     stores:[
         'Users',
         'Projects',
-        'Roles'
+        'Roles',
+        'AssignedUsers'
     ],
     init: function(){
         this.control({
             'groupprojects': {
                 addProject : this.onShowProjectPopUp
             },
-            'assignuserstogroupsform': {
-                saveUsersAction : this.onSaveUsersChanges,
-                cancelUsersAction : this.onCancelUsersChanges
-            },
             'assignuserstoprojectsform': {
                 saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
                 cancelUsersToProjectAction : this.onCancelUsersToProjectChanges
-            },
-            'assignprojectstousersform': {
-                saveProjectsToUsersAction : this.onSaveProjectsToUsersChanges,
-                cancelProjectsToUsersAction : this.onCancelProjectsToUsersChanges
             },
             'addprojectpopup': {
                 addProjectClick : this.onAddProject
@@ -60,15 +52,9 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         });
     },
 
-    /**Will show a pop up to request a user mail*/
-    onGroupUsersManagement: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.group.UsersManagerPopUp');
-        this.addProjectPopup.show();
-    },
-
     /**Will show a pop up to request a project*/
     onShowProjectPopUp: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.group.UserRolesAssignmentPopUp');
+        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
         this.addProjectPopup.title = 'New Project';
         this.addProjectPopup.show();
     },

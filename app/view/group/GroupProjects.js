@@ -4,7 +4,7 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
     xtype: 'groupprojects',
     requires : [
         'AliveTracker.view.group.ProjectsGrid',
-        'AliveTracker.view.users.AssignUsersToProjects',
+        'AliveTracker.view.users.AssignUsersToProjects'
     ],
     initComponent:function () {
         this.items = [

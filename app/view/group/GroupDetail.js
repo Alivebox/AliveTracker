@@ -4,8 +4,6 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     xtype: 'groupdetailform',
     requires : [
         'AliveTracker.view.group.UsersGrid',
-        'AliveTracker.view.users.AssignProjectsToUsers',
-        'AliveTracker.view.users.AssignUsersToGroups',
         'AliveTracker.view.group.GroupProjects',
         'AliveTracker.view.users.AssignUsersToProjects',
         'AliveTracker.view.projects.LogBookForm'
@@ -36,13 +34,6 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
             }
         ];
         this.callParent(arguments);
-    },
-
-    /**
-     * Fire a event to GroupDetailController
-     * */
-    onManageUsersClick: function(){
-        this.fireEvent('manageUser');
     },
 
     /**

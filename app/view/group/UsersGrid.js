@@ -23,15 +23,6 @@ Ext.define('AliveTracker.view.group.UsersGrid', {
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_EDIT_USER,
-                            handler: function(grid, rowIndex, colIndex) {
-                                this.addProjectPopup = Ext.create('AliveTracker.view.group.ProjectsManagerPopUp');
-                                this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
-                                this.addProjectPopup.show();
-                            }
-                        },
-                        {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER,
                             handler: function(grid, rowIndex, colIndex) {

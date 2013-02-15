@@ -31,7 +31,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     editor:{
                         xtype:'combobox',
                         allowBlank:true,
-                        store:'Users',
+                        store:'AssignedUsers',
                         displayField:'name',
                         editable:false
                     }
@@ -59,7 +59,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                             icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
                             tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
                             handler:function (grid, rowIndex, colIndex) {
-                                this.addProjectPopup = Ext.create('AliveTracker.view.group.UserRolesAssignmentPopUp');
+                                this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
                                 this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
                                 this.addProjectPopup.show();
                             }

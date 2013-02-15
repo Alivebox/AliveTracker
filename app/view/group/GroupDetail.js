@@ -3,7 +3,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     extend: 'Ext.Container',
     xtype: 'groupdetailform',
     requires : [
-        'AliveTracker.view.group.UsersGrid',
+        'AliveTracker.view.users.UsersGrid',
         'AliveTracker.view.group.GroupProjects',
         'AliveTracker.view.users.AssignUsersToProjects',
         'AliveTracker.view.projects.LogBookForm'

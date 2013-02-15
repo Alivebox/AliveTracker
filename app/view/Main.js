@@ -9,7 +9,6 @@ Ext.define('AliveTracker.view.Main', {
         'AliveTracker.view.authentication.Profile',
         'AliveTracker.view.reports.Reports',
         'AliveTracker.view.group.GroupDetail',
-        'AliveTracker.view.group.UsersGrid',
         'AliveTracker.view.home.Home',
         'AliveTracker.view.projects.Calendar'
     ],

@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.group.UsersGrid', {
+Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
     xtype: 'usersGrid',

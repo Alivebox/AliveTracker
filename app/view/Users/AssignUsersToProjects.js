@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
     extend:'Ext.container.Container',
     xtype:'assignuserstoprojectsform',
     requires:[
-        'AliveTracker.view.group.UserRolesGrid',
+        'AliveTracker.view.users.UserRolesGrid',
         'AliveTracker.view.users.UsersList'
     ],
 

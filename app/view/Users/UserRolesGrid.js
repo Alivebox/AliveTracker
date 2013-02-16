@@ -2,6 +2,15 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
 
     extend: 'Ext.grid.Panel',
     xtype: 'userrolesgrid',
+    hideHeaders:true,
+    multiSelect:true,
+    scroll:'vertical',
+    resizeble: false,
+    maxHeight: 150,
+    minHeight: 150,
+    maxWidth: 250,
+    minWidth: 250,
+
 
     initComponent: function() {
         var me = this;
@@ -13,6 +22,7 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                     menuDisabled:true,
                     text: 'Name',
                     sortable : false,
+                    width: 175,
                     dataIndex: 'name'
                 },
                 {
@@ -20,6 +30,7 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                     menuDisabled:true,
                     text: 'Role',
                     sortable : false,
+                    width: 75,
                     dataIndex: 'role',
                     editor: {
                         xtype:'combobox',

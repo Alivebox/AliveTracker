@@ -1,6 +1,6 @@
 Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
     extend:'Ext.container.Container',
-    xtype:'assignuserstoprojectsform',
+    xtype:'assignuserstoprojectsview',
     requires:[
         'AliveTracker.view.users.UserRolesGrid',
         'AliveTracker.view.users.UsersList'
@@ -97,10 +97,10 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
         this.fireEvent('cancelUsersToProjectAction', this.ownerCt);
     },
     onRemoveElement: function(){
-        debugger;
+        this.fireEvent('removeUserFromProjectButtonAction');
     },
     onAddElement: function(){
-        debugger;
+        this.fireEvent('addUserToProjectButtonAction');
     }
 });
 

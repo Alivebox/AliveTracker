@@ -16,11 +16,11 @@ Ext.application({
         'group.GroupDetailController',
         'reports.ReportsController',
         'projects.LogBookController',
-        'reports.ReportsController',
         'authentication.LoginController',
         'authentication.ForgotPasswordController',
         'authentication.ProfileController',
-        'authentication.RegisterController'
+        'authentication.RegisterController',
+        'users.AssignUsersToProjectsController'
     ],
     launch: function(){
         Ext.create('Ext.container.Viewport', {

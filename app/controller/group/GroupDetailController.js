@@ -1,4 +1,4 @@
-Ext.define("AliveTracker.controller.group.GroupDetailController", {
+Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     extend: "Ext.app.Controller",
     requires : [
@@ -21,10 +21,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         this.control({
             'groupprojects': {
                 addProject : this.onShowProjectPopUp
-            },
-            'assignuserstoprojectsform': {
-                saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
-                cancelUsersToProjectAction : this.onCancelUsersToProjectChanges
             },
             'addprojectpopup': {
                 addProjectClick : this.onAddProject
@@ -59,47 +55,6 @@ Ext.define("AliveTracker.controller.group.GroupDetailController", {
         this.addProjectPopup.show();
     },
 
-    /**This method will save all users changes*/
-    onSaveUsersChanges: function(argPopUp, argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
-
-    /**This method will cancel all users changes*/
-    onCancelUsersChanges: function(argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
-
-    /**This method will save all users assigned to projects changes*/
-    onSaveUsersToProjectChanges: function(argPopUp, argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
-
-    /**This method will cancel all users assigned to projects changes*/
-    onCancelUsersToProjectChanges: function(argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
-
-    /**This method will save all projects assigned to users changes*/
-    onSaveProjectsToUsersChanges: function(argPopUp, argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
-
-    /**This method will cancel all projects assigned to users changes*/
-    onCancelProjectsToUsersChanges: function(argWindow){
-        var tmpWindow = argWindow;
-        debugger;
-        tmpWindow.close();
-    },
     /**This method will add a project*/
     onAddProject: function(argEvent){
         var tmpWindow = argEvent;

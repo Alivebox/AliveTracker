@@ -14,6 +14,7 @@ Ext.application({
         'MainController',
         'home.HomeController',
         'group.GroupDetailController',
+        'group.AddUsersGroupController',
         'reports.ReportsController',
         'projects.LogBookController',
         'authentication.LoginController',

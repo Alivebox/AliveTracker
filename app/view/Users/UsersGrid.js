@@ -5,7 +5,6 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
 
     initComponent: function() {
         var me = this;
-
         Ext.applyIf(me, {
             columns: [
                 {
@@ -14,6 +13,21 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     text: 'Name',
                     sortable : false,
                     dataIndex: 'name'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    menuDisabled:true,
+                    text: 'Role',
+                    sortable : false,
+                    width: 75,
+                    dataIndex: 'role',
+                    editor: {
+                        xtype:'combobox',
+                        allowBlank:true,
+                        store:'Roles',
+                        displayField:'role',
+                        editable:false
+                    }
                 },
                 {
                     xtype:'actioncolumn',
@@ -37,12 +51,16 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                                     },
                                     this
                                 );
-
-
                             }
                         }
                     ]
                 }
+            ],
+            selType: 'cellmodel',
+            plugins: [
+                Ext.create('Ext.grid.plugin.CellEditing', {
+                 clicksToEdit: 1
+                })
             ]
         });
 

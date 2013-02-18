@@ -40,13 +40,13 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                         editable:false
                     }
                 }
-            ]/*,
+            ],
             selType: 'cellmodel',
             plugins: [
                 Ext.create('Ext.grid.plugin.CellEditing', {
                     clicksToEdit: 1
                 })
-            ]*/
+            ]
         });
 
         me.callParent(arguments);

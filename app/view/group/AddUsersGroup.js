@@ -27,13 +27,17 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
                     {
                         xtype: 'button',
                         id: 'btnAddUser',
-                        text: 'Add User'
+                        text: 'Add User',
+                        listeners: {
+                            scope: this,
+                            'click' : 'onAddUserClick'
+                        }
                     }
                 ]
             },
             {
                 xtype: 'usersGrid',
-                store: 'Users'
+                store: 'AssignedUsers'
             }
         ];
 
@@ -48,6 +52,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             minChars:2,
             forceSelection:true,
             hideTrigger:true,
+            id: 'usersCombo',
             store: 'Users',
             valueField: 'name',
             displayField: 'name',
@@ -69,8 +74,10 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
     },
 
     onComboKeyUp: function(){
-        this.userscombo.getRawValue();
         this.fireEvent('comboUsersKeyUp', this.userscombo.getRawValue());
+    },
 
+    onAddUserClick: function(){
+        this.fireEvent('addUserClick');
     }
 });

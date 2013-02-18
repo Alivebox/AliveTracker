@@ -9,11 +9,19 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     extend: "Ext.app.Controller",
 
+    refs: [
+        {
+            ref: 'addUsersCombo',
+            selector: 'addusersgroup #usersCombo'
+        }
+    ],
+
     init: function(){
         this.control({
             'addusersgroup': {
                 boxready : this.onAddUsersGroupBoxReady,
-                comboUsersKeyUp: this.onFilterComboUsers
+                comboUsersKeyUp: this.filterComboUsers,
+                addUserClick: this.addUser
             }
         });
     },
@@ -23,14 +31,20 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     addListeners:function(abstractcomponent){
-        var me = this,
-            addUsersGroupEl = abstractcomponent.getEl();
-        addUsersGroupEl.on('click', me.onNewUserClick, me, {delegate: '#btnAddUser'});
     },
 
-    onNewUserClick:function(e, el){
-        alert('New Click');
-        //this.addUserPopUp = this.getAddUserPopUp();
+    addUser:function(e, el){
+        if(Ext.isEmpty(this.getAddUsersCombo().lastSelection[0])){
+            return;
+        }
+        var tmpUser = this.getAddUsersCombo().lastSelection[0].data;
+        var tmpModel = Ext.create('AliveTracker.model.User', {
+            name: tmpUser.name,
+            role: 'usr'
+        });
+        var tmpUsersStore = Ext.getStore('AssignedUsers');
+        tmpUsersStore.add(tmpModel);
+        tmpUsersStore.commitChanges();
     },
 
     getAddUserPopUp: function(){
@@ -39,7 +53,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         return tmpAddUserPopUp;
     },
 
-    onFilterComboUsers: function (argDataToFilter){
+    filterComboUsers: function (argDataToFilter){
         var query = argDataToFilter.toLowerCase();
         var tmpStore = Ext.getStore('Users');
         tmpStore.clearFilter();
